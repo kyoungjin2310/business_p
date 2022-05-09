@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+/*title*/
+$titleStyle: "Montserrat", sans-serif;
+
+@mixin title1($mb: 60px) {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 30px;
+  color: #555;
+  line-height: 1.3em;
+  margin-bottom: $mb;
+}
+@mixin title2($ta: center, $color: #999) {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: $color;
+  letter-spacing: 0;
+  text-align: $ta;
+}
+@mixin numFont($fz: 70px) {
+  font-size: $fz;
+  line-height: 1em;
+  color: #333;
+  letter-spacing: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+/*color*/
+$mainColor: #0056f1;
+$bgColor: #f8f9fd;
+
+/*가상선택자*/
+@mixin cont_poa() {
+  position: absolute;
+  content: "";
+  display: block;
+}
+
+/*중앙정렬*/
+@mixin marginAuto($padding: 100px) {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: $padding;
+}
+
+@mixin center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

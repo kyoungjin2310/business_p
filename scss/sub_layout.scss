@@ -1,9 +1,7 @@
 @charset "UTF-8";
 @import "_reset.scss";
+@import "_commons.scss";
 @import "_about.scss";
-
-$titleStyle: "Montserrat", sans-serif;
-$mainColor: #0056f1;
 
 /*header*/
 #headerSub {
@@ -22,7 +20,7 @@ $mainColor: #0056f1;
       left: 100px;
       bottom: 9px;
       > a {
-        font-family: "Montserrat", sans-serif;
+        font-family: $titleStyle;
         font-size: 24px;
         letter-spacing: 0;
         color: #fff;
@@ -37,7 +35,6 @@ $mainColor: #0056f1;
         a {
           display: block;
           margin-left: 65px;
-          font-family: "Roboto", sans-serif;
           font-weight: 900;
           letter-spacing: 0;
           font-size: 16px;
@@ -126,7 +123,7 @@ $mainColor: #0056f1;
     a {
       display: inline-block;
       color: #fff;
-      font-family: "Montserrat", sans-serif;
+      font-family: $titleStyle;
       font-size: 60px;
       line-height: 1em;
     }
@@ -137,7 +134,7 @@ $mainColor: #0056f1;
     ul li a {
       display: inline-block;
       padding: 20px 0;
-      font-family: "Montserrat", sans-serif;
+      font-family: $titleStyle;
       font-size: 40px;
       color: #888;
       line-height: 1em;
@@ -154,13 +151,10 @@ $mainColor: #0056f1;
   transition: 0.25s ease;
   overflow: hidden;
   h1 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    @include center();
     z-index: 1;
-    transform: translate(-50%, -50%);
     margin-top: 42px;
-    font-family: "Montserrat", sans-serif;
+    font-family: $titleStyle;
     font-size: 60px;
     color: #fff;
     text-align: center;
@@ -177,10 +171,7 @@ $mainColor: #0056f1;
     height: 100%;
     filter: brightness(0.5);
     img {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      @include center();
       width: calc(100% + 2px);
     }
   }
@@ -210,7 +201,7 @@ $mainColor: #0056f1;
       color: #000;
       line-height: 1.3em;
       margin-bottom: 30px;
-      font-family: "Montserrat", sans-serif;
+      font-family: $titleStyle;
     }
     p {
       margin-bottom: 100px;
@@ -238,7 +229,7 @@ $mainColor: #0056f1;
         }
       }
       a {
-        font-family: "Montserrat", sans-serif;
+        font-family: $titleStyle;
         padding: 0 40px;
         font-weight: 500;
         line-height: 80px;
@@ -263,7 +254,7 @@ $mainColor: #0056f1;
       clear: both;
     }
     h1 {
-      font-family: "Montserrat", sans-serif;
+      font-family: $titleStyle;
       font-size: 24px;
       color: #777;
       float: left;

@@ -1,11 +1,5 @@
 @charset "UTF-8";
 
-@mixin marginAuto($padding: 100px) {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-bottom: $padding;
-}
-
 .tac {
   text-align: center;
 }
@@ -17,12 +11,7 @@
     @include marginAuto(0);
   }
   h3 {
-    font-weight: 600;
-    font-size: 30px;
-    color: #555;
-    line-height: 1.3em;
-    margin-bottom: 100px;
-    font-family: "Montserrat", sans-serif;
+    @include title1();
   }
   .aboutList {
     text-align: center;
@@ -31,37 +20,26 @@
     li {
       position: relative;
       float: left;
+      display: block;
       width: 33.33%;
-      text-align: center;
+      margin-top: 20px;
       margin-bottom: 20px;
       padding: 15px 0;
-      font-family: "Montserrat", sans-serif;
-      font-weight: 500;
-      margin-top: 20px;
-      display: block;
-      font-size: 20px;
-      color: #999;
       transition: 0.5s;
-      letter-spacing: 0;
+      @include title2();
       em {
         position: relative;
         display: inline-block;
-        font-size: 70px;
-        line-height: 1em;
-        color: #333;
-        letter-spacing: 0;
-        font-family: "Montserrat", sans-serif;
+        @include numFont();
         &::after {
-          position: absolute;
+          @include cont_poa();
           top: -30px;
           left: 50%;
           margin-left: -10px;
-          content: "";
-          display: block;
           width: 20px;
           height: 20px;
           border-radius: 50%;
-          background-color: #0056f1;
+          background-color: $mainColor;
         }
       }
       span {
@@ -72,7 +50,7 @@
   /*service*/
   .service {
     position: relative;
-    background-color: #f8f9fd;
+    background-color: $bgColor;
     max-width: 100%;
     > div {
       padding-top: 110px;
@@ -81,21 +59,19 @@
         margin-bottom: 0;
       }
       &::after {
-        position: absolute;
+        @include cont_poa();
         bottom: -292px;
         left: 0;
         z-index: -1;
-        content: "";
-        display: block;
         width: 100%;
         height: 292px;
-        background-color: #f8f9fd;
+        background-color: $bgColor;
       }
     }
     svg {
       width: 110px;
       height: 110px;
-      fill: #0056f1;
+      fill: $mainColor;
     }
     .iconList {
       text-align: center;
@@ -106,10 +82,7 @@
         width: 33.33%;
       }
       span {
-        font-family: "Montserrat", sans-serif;
-        font-weight: 500;
-        font-size: 20px;
-        color: #999;
+        @include title2();
       }
     }
   }
