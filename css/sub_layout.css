@@ -1,0 +1,376 @@
+@charset "UTF-8";
+@import "reset.css";
+
+/* header */
+#headerSub {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid #333;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 9;
+}
+#headerSub .inner {
+  height: 100px;
+  margin: 0 auto;
+  position: relative;
+}
+#headerSub .inner > h1 {
+  position: absolute;
+  left: 100px;
+  bottom: 39px;
+}
+#headerSub .inner > h1 > a {
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  letter-spacing: 0;
+  color: #fff;
+}
+#headerSub .inner #gnb {
+  position: absolute;
+  right: 100px;
+  bottom: 35px;
+}
+#headerSub .inner #gnb li {
+  float: left;
+}
+#headerSub .inner #gnb li a {
+  display: block;
+
+  margin-left: 65px;
+
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  letter-spacing: 0;
+  color: #fff;
+}
+#headerSub .inner #gnb li a:hover {
+  color: #fff;
+}
+
+#headerSub .inner .btnCall {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: none;
+  width: 20px;
+  height: 20px;
+}
+#headerSub .inner .btnCall::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: top 0.5s, transform 0.5s 0.5s;
+}
+#headerSub .inner .btnCall::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: bottom 0.5s, transform 0.5s 0.5s;
+}
+#headerSub .inner .btnCall span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -1px;
+  text-indent: -9999px;
+  transition: 0.5s;
+}
+#headerSub .inner .btnCall.on::before {
+  top: 50%;
+  transform: rotate(45deg);
+  margin-top: -1px;
+}
+#headerSub .inner .btnCall.on::after {
+  bottom: 50%;
+  transform: rotate(-45deg);
+  margin-bottom: -1px;
+}
+#headerSub .inner .btnCall.on span {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+/* 모바일 메뉴 */
+#headerSub .inner .menuMo {
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  padding: 38px 30px;
+  transform: translateY(-100%);
+  transition: 0.5s;
+}
+
+#headerSub .inner .menuMo.on {
+  transform: translateY(0);
+}
+#headerSub .inner .menuMo h1 {
+  padding-bottom: 30px;
+}
+#headerSub .inner .menuMo h1 a {
+  display: inline-block;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 60px;
+  line-height: 1em;
+}
+#headerSub .inner .menuMo h1 span {
+  font-size: 12px;
+  color: #aaa;
+}
+
+#headerSub .inner .menuMo ul li a {
+  display: inline-block;
+  padding: 20px 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 40px;
+  color: #888;
+  line-height: 1em;
+  letter-spacing: 0;
+}
+
+/* visual */
+.visual {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  transition: 0.25s ease;
+  overflow: hidden;
+}
+
+.visual h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  margin-top: 42px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 60px;
+  color: #fff;
+  text-align: center;
+  line-height: 1em;
+}
+
+.visual .img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.visual img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% + 2px);
+}
+
+/* content */
+.content {
+  width: 100%;
+  min-height: calc(100vh + 450px);
+  padding: 0 0 150px;
+}
+.content .sub_visual {
+  width: 100%;
+  height: 250px;
+  background: #bbb;
+  margin-bottom: 100px;
+}
+
+.content .contentWrap {
+  max-width: 1180px;
+  padding: 110px 30px 60px;
+  margin: 0 auto;
+  text-align: center;
+}
+.content .contentWrap h2 {
+  font-weight: bold;
+  line-height: 1.3em;
+  margin-bottom: 30px;
+}
+
+.content .contentWrap p {
+  margin-bottom: 100px;
+}
+
+/* .content .contentWrap .pic {
+  max-width: 700px;
+  margin: 0 auto;
+  height: 300px;
+  background-color: #333;
+} */
+
+/* footer*/
+#footerSub {
+  width: 100%;
+  padding: 100px 30px;
+  background: #444;
+}
+#footerSub .inner {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+#footerSub .inner::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+#footerSub .inner h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  color: #777;
+  float: left;
+  letter-spacing: 0;
+}
+#footerSub .inner ul {
+  float: right;
+}
+#footerSub .inner ul li {
+  float: left;
+  margin-left: 20px;
+}
+#footerSub .inner ul li a {
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  color: #777;
+  letter-spacing: 0;
+}
+#footerSub .inner address {
+  width: 100%;
+  float: left;
+  font-size: 14px;
+  font-style: normal;
+  color: #777;
+  margin-bottom: 20px;
+  border-top: 1px solid #555;
+  padding-top: 20px;
+  margin-top: 20px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+#footerSub .inner p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #666;
+  width: 100%;
+  float: left;
+  letter-spacing: 0;
+}
+
+/* tablet */
+@media screen and (max-width: 1179px) {
+  /* header */
+  #headerSub .inner {
+    width: 100%;
+    height: 100px;
+  }
+  #headerSub .inner h1 {
+    left: 30px;
+  }
+
+  /*visual*/
+  .visual {
+    height: 350px;
+  }
+  .visual .visualWrap {
+    padding: 0 30px;
+  }
+  #headerSub .inner .menuWeb {
+    display: none;
+  }
+
+  #headerSub .inner .btnCall {
+    display: block;
+    z-index: 100;
+  }
+
+  /*content*/
+  .content {
+    padding: 0 0px 150px;
+  }
+  .content .contentWrap {
+    padding-top: 60px;
+  }
+
+  /* footer */
+  #footerSubSub {
+    padding: 80px 30px;
+  }
+  #footerSubSub .inner {
+    width: 100%;
+  }
+}
+
+/* mobile */
+@media screen and (max-width: 539px) {
+  /* menuMo */
+  #headerSub .inner .menuMo h1 a {
+    font-size: 9vmin;
+  }
+  #headerSub .inner .menuMo ul li a {
+    font-size: 7vmin;
+  }
+
+  /*visual*/
+  .visual {
+    height: 300px;
+  }
+  .visual h1 {
+    font-size: 9vmin;
+  }
+
+  /*content*/
+  .content .sub_visual {
+    height: 150px;
+    margin-bottom: 50px;
+  }
+  .content .inner {
+    min-height: 300px;
+  }
+  .content .inner h1 span {
+    display: block;
+    margin-top: 10px;
+  }
+
+  /* footer */
+  #footerSubSub .inner h1 {
+    float: none;
+  }
+  #footerSubSub .inner ul {
+    margin-top: 10px;
+    float: none;
+  }
+  #footerSubSub .inner ul li {
+    margin-left: 0px;
+    margin: 5px;
+  }
+  #footerSubSub .inner ul li:first-child {
+    margin-left: 0;
+  }
+}
