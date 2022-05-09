@@ -16,6 +16,9 @@ a {
   display: block;
   clear: both;
 }
+em {
+  font-style: normal;
+}
 
 /*common*/
 body {
@@ -29,4 +32,10 @@ body,
 header,
 footer {
   min-width: 320px;
+}
+
+.hiddin {
+  position: absolute;
+  top: -9999px;
+  opacity: 0;
 }
