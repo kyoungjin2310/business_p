@@ -2,19 +2,20 @@
 
 /*title*/
 $titleStyle: "Montserrat", sans-serif;
+$fontStyle: "Roboto", sans-serif;
 
 @mixin title1($mb: 60px) {
-  font-family: "Montserrat", sans-serif;
+  font-family: $titleStyle;
   font-weight: 600;
   font-size: 30px;
   color: #555;
   line-height: 1.3em;
   margin-bottom: $mb;
 }
-@mixin title2($ta: center, $color: #999) {
-  font-family: "Montserrat", sans-serif;
+@mixin title2($ta: center, $color: #999, $ff: $titleStyle, $fz: 20px) {
+  font-family: $ff;
   font-weight: 500;
-  font-size: 20px;
+  font-size: $fz;
   color: $color;
   letter-spacing: 0;
   text-align: $ta;
@@ -24,12 +25,14 @@ $titleStyle: "Montserrat", sans-serif;
   line-height: 1em;
   color: #333;
   letter-spacing: 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: $titleStyle;
 }
 
 /*color*/
 $mainColor: #0056f1;
 $bgColor: #f8f9fd;
+$borderColor: #ddd;
+$circleColor: #aaa;
 
 /*가상선택자*/
 @mixin cont_poa() {
@@ -50,4 +53,13 @@ $bgColor: #f8f9fd;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+@mixin boxStyle($pb: 200px, $pt: 110px) {
+  padding-top: $pt;
+  background-color: #f8f9fd;
+  padding-bottom: $pb;
+  div {
+    @include marginAuto(0);
+  }
 }
