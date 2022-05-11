@@ -308,7 +308,7 @@
 }
 
 /* tablet */
-@media screen and (max-width: 1179px) {
+@media screen and (max-width: $tablet) {
   /* header */
   #headerSub .inner {
     width: 100%;
@@ -333,7 +333,6 @@
   }
   /*content*/
   .content {
-    padding: 0 0px 150px;
     .contentWrap {
       padding-top: 60px;
     }
@@ -348,7 +347,7 @@
 }
 
 /* mobile */
-@media screen and (max-width: 539px) {
+@media screen and (max-width: $mobile) {
   /* menuMo */
   .menuMo {
     h1 > a {

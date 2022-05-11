@@ -1,11 +1,30 @@
+$history_responsive: 700px;
 .history {
   @include marginAuto();
   margin-bottom: 100px;
   .historyList {
+    position: relative;
     margin-top: 50px;
     text-align: left;
     &::after {
-      @include cb();
+      @include cont_poa();
+      left: 86px;
+      top: auto;
+      bottom: -80px;
+      width: 5px;
+      height: 5px;
+      margin-left: -3px;
+      border-radius: 50%;
+      background-color: $mainColor;
+    }
+    &::before {
+      @include cont_poa();
+      top: 90px;
+      left: 86px;
+      width: 1px;
+      margin-left: -1px;
+      height: calc(100% - 10px);
+      background-color: rgba(0, 86, 241, 0.2);
     }
     > li {
       display: table;
@@ -13,21 +32,6 @@
       margin-bottom: 100px;
       &:last-child {
         margin-bottom: 0;
-        h3 {
-          span {
-            &::before {
-              @include cont_poa();
-              left: 76px;
-              top: auto;
-              bottom: -80px;
-              width: 5px;
-              height: 5px;
-              margin-left: -3px;
-              border-radius: 50%;
-              background-color: rgba(0, 86, 241, 1);
-            }
-          }
-        }
       }
 
       li {
@@ -47,19 +51,12 @@
       display: table-cell;
       width: 20%;
       vertical-align: top;
-      @include numFont($fz: 70px, $c: rgba(0, 86, 241, 1));
+      @include numFont($fz: 70px, $c: $mainColor);
       text-align: left;
       > span {
+        padding: 20px 0;
         display: block;
-        &::after {
-          @include cont_poa();
-          top: 80px;
-          left: 86px;
-          width: 1px;
-          margin-left: -1px;
-          height: calc(100%);
-          background-color: rgba(0, 86, 241, 0.2);
-        }
+        background-color: #fff;
       }
       // position: relative;
       // float: left;
@@ -99,7 +96,7 @@
           height: 10px;
           margin-top: -5px;
           border-radius: 50%;
-          background-color: rgba(0, 86, 241, 1);
+          background-color: $mainColor;
         }
       }
     }
@@ -108,6 +105,116 @@
     }
     p {
       font-size: 17px;
+    }
+  }
+}
+
+@media screen and (max-width: $history_responsive) {
+  .history {
+    @include marginAuto();
+    .historyList {
+      margin-top: 40px;
+      &::after {
+        left: 56px;
+        bottom: 10px;
+      }
+      &::before {
+        left: 56px;
+        height: calc(100% - 100px);
+      }
+      > li {
+        margin-bottom: 80px;
+      }
+      div {
+        font: none;
+        width: 100%;
+      }
+      h3 {
+        @include numFont($fz: 50px, $c: $mainColor);
+      }
+      ul {
+        padding: 100px 20px 0 40px;
+      }
+      h4 {
+        margin-bottom: 10px;
+        font: none;
+        @include numFont($fz: 20px, $lh: 1.5);
+      }
+      h5 {
+        font-size: 18px;
+      }
+      p {
+        font-size: 17px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .history {
+    @include marginAuto();
+    .historyList {
+      margin-top: 40px;
+      &::after {
+        display: none;
+      }
+      &::before {
+        display: none;
+      }
+      > li {
+        margin-bottom: 40px;
+      }
+      div {
+        font: none;
+        width: 100%;
+      }
+      h3 {
+        position: relative;
+        display: block;
+        width: 100%;
+        @include numFont($fz: 40px, $c: $mainColor);
+        > span {
+          display: inline-block;
+          padding-right: 20px;
+        }
+        &::before {
+          @include cont_poa();
+          top: 50%;
+          left: 0;
+          width: 100%;
+          margin-top: -1px;
+          height: 1px;
+          background-color: rgba(0, 86, 241, 0.2);
+          z-index: -1;
+        }
+      }
+      ul {
+        display: block;
+        padding: 0 20px;
+        line-height: 1.5;
+        width: 100%;
+        word-break: break-all;
+      }
+      h4 {
+        margin-bottom: 10px;
+        font: none;
+        @include numFont($fz: 20px, $lh: 1.5);
+        span {
+          &::before {
+            left: -15px;
+            width: 7px;
+            height: 7px;
+            margin-top: -3px;
+          }
+        }
+      }
+      h5 {
+        margin-bottom: 5px;
+        font-size: 17px;
+      }
+      p {
+        font-size: 16px;
+      }
     }
   }
 }

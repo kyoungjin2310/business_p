@@ -1,4 +1,4 @@
-$responsive: 700px;
+$org_responsive: 700px;
 
 .orgChart {
   .division {
@@ -165,7 +165,7 @@ $responsive: 700px;
   }
 }
 
-@media screen and (max-width: $responsive) {
+@media screen and (max-width: $org_responsive) {
   .orgChart {
     .division {
       height: auto;

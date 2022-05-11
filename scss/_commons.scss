@@ -1,9 +1,14 @@
 @charset "UTF-8";
 
+/*반응형*/
+$tablet: 1240px;
+$mobile: 539px;
+
 /*title*/
 $titleStyle: "Montserrat", sans-serif;
 $fontStyle: "Roboto", sans-serif;
 
+/*font*/
 @mixin title1($mb: 60px) {
   font-family: $titleStyle;
   font-weight: 600;
@@ -12,6 +17,7 @@ $fontStyle: "Roboto", sans-serif;
   line-height: 1.3em;
   margin-bottom: $mb;
 }
+
 @mixin title2($ta: center, $color: #999, $ff: $titleStyle, $fz: 20px) {
   font-family: $ff;
   font-weight: 500;
@@ -20,6 +26,7 @@ $fontStyle: "Roboto", sans-serif;
   letter-spacing: 0;
   text-align: $ta;
 }
+
 @mixin numFont($fz: 70px, $c: #333, $lh: 1em) {
   font-size: $fz;
   line-height: $lh;
@@ -51,6 +58,14 @@ $circleColor: #aaa;
   max-width: 1200px;
   margin: 0 auto;
   padding-bottom: $padding;
+  @media screen and (max-width: $tablet) {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+  @media screen and (max-width: $mobile) {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
 }
 
 @mixin center() {
