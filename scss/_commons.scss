@@ -20,10 +20,10 @@ $fontStyle: "Roboto", sans-serif;
   letter-spacing: 0;
   text-align: $ta;
 }
-@mixin numFont($fz: 70px) {
+@mixin numFont($fz: 70px, $c: #333, $lh: 1em) {
   font-size: $fz;
-  line-height: 1em;
-  color: #333;
+  line-height: $lh;
+  color: $c;
   letter-spacing: 0;
   font-family: $titleStyle;
 }
@@ -40,6 +40,11 @@ $circleColor: #aaa;
   content: "";
   display: block;
 }
+@mixin cb() {
+  content: "";
+  display: block;
+  clear: both;
+}
 
 /*중앙정렬*/
 @mixin marginAuto($padding: 100px) {
@@ -55,6 +60,7 @@ $circleColor: #aaa;
   transform: translate(-50%, -50%);
 }
 
+/*Box Style*/
 @mixin boxStyle($pb: 200px, $pt: 110px) {
   padding-top: $pt;
   background-color: #f8f9fd;
