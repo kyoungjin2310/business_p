@@ -6,14 +6,66 @@ $about_responsive: 700px;
 
 /*about*/
 .about {
-  text-align: center;
-  > div {
-    @include marginAuto();
-    > p {
+  overflow: hidden;
+  position: relative;
+  text-align: left;
+  h2 {
+    text-align: center;
+  }
+  .aboutVisual {
+    position: relative;
+    margin-top: 200px;
+    margin-bottom: 180px;
+    text-align: left;
+    .title {
+      position: relative;
+      margin-bottom: 80px;
+      line-height: 1.5;
+      @include title2($ta: left, $color: #333, $fz: 7vmin);
+      &::after {
+        @include cont_poa();
+        top: -40px;
+        left: 0;
+        width: 7vw;
+        height: 10px;
+        background-color: $mainColor;
+      }
+    }
+    .img {
+      position: relative;
+      height: 500px;
+      overflow-y: clip;
+      img {
+        position: absolute;
+        left: 0;
+        top: -120%;
+      }
+    }
+    p {
       margin-top: 80px;
     }
+    &.even {
+      text-align: right;
+      .title {
+        text-align: right;
+        &::after {
+          left: auto;
+          right: 0;
+        }
+      }
+      .img {
+        img {
+          left: auto;
+          right: 0;
+        }
+      }
+    }
   }
-  h3 {
+  > div {
+    @include marginAuto();
+  }
+  .iconTitle {
+    text-align: center;
     @include title1(60px);
   }
   .aboutList {
@@ -102,8 +154,26 @@ $about_responsive: 700px;
         margin-top: 60px;
       }
     }
-
-    h3 {
+    .aboutVisual {
+      margin-top: 100px;
+      margin-bottom: 100px;
+      .title {
+        margin-bottom: 60px;
+        font-size: 30px;
+        &::after {
+          top: -20px;
+          width: 50px;
+          height: 5px;
+        }
+      }
+      .img {
+        height: 250px;
+      }
+      p {
+        margin-top: 60px;
+      }
+    }
+    .iconTitle {
       font-size: 25px;
       margin-bottom: 20px;
     }
