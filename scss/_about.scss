@@ -147,6 +147,21 @@ $about_responsive: 700px;
   }
 }
 
+@media screen and (max-width: $tablet) {
+  /*about*/
+  .about {
+    .aboutVisual {
+      .img {
+        img {
+          height: 200%;
+          top: auto;
+          bottom: 0;
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: $about_responsive) {
   /*about*/
   .about {
