@@ -43,7 +43,10 @@ $about_responsive: 700px;
         }
       }
       span {
+        margin-top: 10px;
+        line-height: 1.5;
         display: block;
+        padding: 0 30px;
       }
     }
   }
@@ -113,6 +116,9 @@ $about_responsive: 700px;
             width: 10px;
             height: 10px;
           }
+        }
+        span {
+          margin-top: 0;
         }
       }
     }
