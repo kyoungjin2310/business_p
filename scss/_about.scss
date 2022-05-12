@@ -27,6 +27,8 @@ $about_responsive: 700px;
         top: -40px;
         left: 0;
         width: 7vw;
+        max-width: 100px;
+        min-width: 50px;
         height: 10px;
         background-color: $mainColor;
       }
@@ -162,7 +164,8 @@ $about_responsive: 700px;
         font-size: 30px;
         &::after {
           top: -20px;
-          width: 50px;
+          width: 40px;
+          min-width: 40px;
           height: 5px;
         }
       }
