@@ -334,7 +334,7 @@
   /*content*/
   .content {
     .contentWrap {
-      padding-top: 60px;
+      padding-top: 80px;
     }
   }
   /* footer */
@@ -365,12 +365,33 @@
     h1 {
       font-size: 9vmin;
     }
+    .img {
+      img {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        width: 100vh;
+      }
+    }
   }
   /*content*/
   .content {
+    font-size: 16px;
+    line-height: 1.5;
     .sub_visual {
       height: 150px;
       margin-bottom: 50px;
+    }
+    .contentWrap {
+      padding-top: 60px;
+      h2 {
+        font-size: 35px;
+        margin-bottom: 20px;
+      }
+      p {
+        margin-bottom: 60px;
+      }
     }
     .inner {
       min-height: 300px;
@@ -380,6 +401,17 @@
       }
     }
   }
+  .subTab {
+    border-bottom: 1px solid #ddd;
+    ul {
+      li {
+        a {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
   /* footer */
   #footerSubSub {
     .inner {
@@ -397,6 +429,11 @@
           }
         }
       }
+    }
+  }
+  body .content .bgBox {
+    .bgBox {
+      @include boxStyle();
     }
   }
 }
