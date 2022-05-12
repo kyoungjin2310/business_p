@@ -76,7 +76,7 @@ $circleColor: #aaa;
 }
 
 /*Box Style*/
-@mixin boxStyle($pb: 200px, $pt: 110px) {
+@mixin boxStyle($pb: 160px, $pt: 110px) {
   padding-top: $pt;
   background-color: #f8f9fd;
   padding-bottom: $pb;

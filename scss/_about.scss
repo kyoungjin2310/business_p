@@ -9,6 +9,9 @@ $about_responsive: 700px;
   text-align: center;
   > div {
     @include marginAuto();
+    > p {
+      margin-top: 80px;
+    }
   }
   h3 {
     @include title1(60px);
@@ -95,7 +98,11 @@ $about_responsive: 700px;
   .about {
     > div {
       padding-bottom: 70px;
+      > p {
+        margin-top: 60px;
+      }
     }
+
     h3 {
       font-size: 25px;
       margin-bottom: 20px;
@@ -124,14 +131,7 @@ $about_responsive: 700px;
     }
     /*service*/
     .service {
-      position: relative;
-      background-color: $bgColor;
-      max-width: 100%;
-      padding-bottom: 0;
       > div {
-        p {
-          margin-bottom: 0;
-        }
         &::after {
           @include cont_poa();
           bottom: -292px;
