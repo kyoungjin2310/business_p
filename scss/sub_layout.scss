@@ -112,13 +112,14 @@
       top: 0;
       left: 0;
       z-index: 10;
-      padding: 38px 30px;
-      transform: translateY(-100%);
+      padding: 70px 70px;
+      transform: translateX(-100%);
       transition: 0.5s;
+      &.on {
+        transform: translateX(0);
+      }
     }
-    &.on {
-      transform: translateY(0);
-    }
+
     h1 {
       padding-bottom: 30px;
     }
@@ -338,7 +339,7 @@
     }
   }
   /* footer */
-  #footerSubSub {
+  #footerSub {
     padding: 80px 30px;
     .inner {
       width: 100%;
@@ -349,13 +350,18 @@
 /* mobile */
 @media screen and (max-width: $mobile) {
   /* menuMo */
-  .menuMo {
-    h1 > a {
-      font-size: 9vmin;
-    }
-    li {
-      a {
-        font-size: 7vmin;
+  #headerSub {
+    .inner {
+      .menuMo {
+        padding: 38px 30px;
+        h1 > a {
+          font-size: 9vmin;
+        }
+        li {
+          a {
+            font-size: 7vmin;
+          }
+        }
       }
     }
   }
@@ -413,7 +419,7 @@
   }
 
   /* footer */
-  #footerSubSub {
+  #footerSub {
     .inner {
       h1 {
         float: none;
