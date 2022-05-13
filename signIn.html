@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign Up Compeleted</title>
+    <title>Sign In</title>
     <script
       src="https://kit.fontawesome.com/716084ccb4.js"
       crossorigin="anonymous"
@@ -52,44 +52,64 @@
         />
       </div>
       <div class="inner">
-        <div class="compeleted">
-          <div>
-            <svg viewBox="0 0 512 512" id="Layer_1">
-              <g>
-                <path
-                  class="st0"
-                  d="M256,470c-118,0-214-96-214-214S138,42,256,42s214,96,214,214S374,470,256,470z M256,66   C151.2,66,66,151.2,66,256s85.2,190,190,190s190-85.2,190-190S360.8,66,256,66z"
-                />
-              </g>
-              <g>
-                <path
-                  class="st1"
-                  d="M231.5,331.5c-6,0-11.8-2.5-15.9-6.8l-55.3-57.9c-4.6-4.8-4.4-12.4,0.4-17c4.8-4.6,12.4-4.4,17,0.4l53.8,56.3   l102.4-121.8c4.3-5.1,11.8-5.7,16.9-1.5c5.1,4.3,5.7,11.8,1.5,16.9L248.4,323.7c-4,4.8-9.9,7.6-16.1,7.8   C232,331.5,231.8,331.5,231.5,331.5z"
-                />
-              </g>
-            </svg>
-          </div>
-          <h1 class="formStyleTitle">Compeleted</h1>
-          <p class="formStyleTxt">
-            Thank your for choosing Aléatoire! Your email address has been
-            verified.
-          </p>
-          <div class="wrap_sign_step">
-            <ol class="formStyleStepList">
-              <li class="formStyleStep1">
-                <span class="num">1</span>
-                <p class="txt">Account Information</p>
-              </li>
-              <li class="formStyleStep2">
-                <span class="num">2</span>
-                <p class="txt">T&Cs</p>
-              </li>
-              <li class="formStyleStep3 on">
-                <span class="num">3</span>
-                <p class="txt">Compeleted</p>
-              </li>
-            </ol>
-          </div>
+        <h1 class="formStyleTitle">Sign In</h1>
+        <p class="formStyleTxt">Create your Aléatoire account</p>
+        <div class="formStyleWrap signIn">
+          <form action="index.html" method="get">
+            <fieldset>
+              <legend class="h">Sign In's form</legend>
+              <h2 class="h">Sign In</h2>
+              <table>
+                <caption class="h">
+                  Sign In's form
+                </caption>
+                <tr scope="row">
+                  <th><label for="loginId">User Id</label></th>
+                  <td>
+                    <input
+                      type="text"
+                      name="loginId"
+                      id="loginId"
+                      placeholder="Enter your user id."
+                      required
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row"><label for="pwd1">Password</label></th>
+                  <td>
+                    <input
+                      type="password"
+                      name="pwd1"
+                      id="pwd1"
+                      placeholder="Enter your password."
+                      required
+                    />
+                  </td>
+                </tr>
+                <tr class="pdt">
+                  <th class="h">Turn on AutoSave</th>
+                  <td>
+                    <div class="rememberMe">
+                      <input
+                        type="checkbox"
+                        name="rememberMe"
+                        id="rememberMe"
+                      />
+                      <label for="rememberMe" class="rememberMe"
+                        >Remember Me</label
+                      >
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th colspan="2">
+                    <input type="submit" value="Sign In" class="signInBtn" />
+                  </th>
+                </tr>
+              </table>
+            </fieldset>
+          </form>
         </div>
       </div>
     </section>
