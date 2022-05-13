@@ -227,48 +227,23 @@ $circleColor: #aaa;
     }
   }
 
-  /* tablet */
-  @media screen and (max-width: $tablet) {
+  /* mobile */
+  @media screen and (max-width: 700px) {
     table {
       th {
-        width: 0%;
         display: none;
 
         &:last-child {
           padding-top: 30px;
           width: 100%;
           display: block;
-        }
-      }
-
-      td {
-        input[type="text"],
-        input[type="password"],
-        select {
-          width: 50%;
-        }
-
-        #country {
-          width: 90%;
-        }
-
-        .hobbyTxt,
-        .genderTxt {
-          display: block;
-        }
-      }
-    }
-  }
-
-  /* mobile */
-  @media screen and (max-width: $mobile) {
-    table {
-      th {
-        input[type="reset"],
-        input[type="submit"] {
-          width: 40%;
-          margin: 0 5%;
-          font-size: 18px;
+          input[type="reset"],
+          input[type="submit"] {
+            display: inline-block;
+            width: 40%;
+            margin: 0 5%;
+            font-size: 18px;
+          }
         }
       }
 
@@ -288,6 +263,9 @@ $circleColor: #aaa;
         }
 
         label {
+          display: block;
+        }
+        .genderTxt {
           display: block;
         }
       }
