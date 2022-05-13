@@ -1,4 +1,6 @@
 $signUp_responsive: 700px;
+
+/*sign up*/
 .signUp {
   position: relative;
   padding: 170px 70px 70px;
@@ -87,6 +89,16 @@ $signUp_responsive: 700px;
   }
 }
 
+/* compeleted */
+.compeleted {
+  margin-top: 100px;
+  svg {
+    max-width: 200px;
+    width: 25vmin;
+    fill: $mainColor;
+  }
+}
+
 @media screen and (max-width: $signUp_responsive) {
   .signUp {
     padding: 130px 30px 30px;
@@ -98,11 +110,12 @@ $signUp_responsive: 700px;
         font-size: 35px;
       }
       .signUpTxt {
-        font-size: 20px;
+        margin-top: 5px;
         margin-bottom: 40px;
+        font-size: 18px;
       }
       .signUpStepList {
-        margin: 0 auto 60px;
+        margin: 0 auto 50px;
         li {
           &::before {
             display: none;
@@ -117,6 +130,12 @@ $signUp_responsive: 700px;
         .txt {
           font-size: 16px;
           line-height: 1.5;
+        }
+      }
+      .compeleted {
+        margin-top: 25px;
+        .signUpStepList {
+          margin-bottom: 20px;
         }
       }
     }
