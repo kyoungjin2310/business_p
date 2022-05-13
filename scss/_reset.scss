@@ -19,6 +19,17 @@ a {
 em {
   font-style: normal;
 }
+table {
+  border-collapse: collapse;
+}
+fieldset {
+  border: none;
+}
+.h {
+  position: absolute;
+  top: -9999px;
+  opacity: 0;
+}
 
 /*common*/
 body {
@@ -37,4 +48,10 @@ footer {
   position: absolute;
   top: -9999px;
   opacity: 0;
+}
+
+::placeholder {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  color: #888;
 }

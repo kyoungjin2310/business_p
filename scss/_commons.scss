@@ -16,15 +16,23 @@ $fontStyle: "Roboto", sans-serif;
   color: #555;
   line-height: 1.3em;
   margin-bottom: $mb;
+  font-weight: 800;
 }
 
-@mixin title2($ta: center, $color: #999, $ff: $titleStyle, $fz: 20px) {
+@mixin title2(
+  $ta: center,
+  $color: #999,
+  $ff: $titleStyle,
+  $fz: 20px,
+  $fw: 800
+) {
   font-family: $ff;
   font-weight: 500;
   font-size: $fz;
   color: $color;
   letter-spacing: 0;
   text-align: $ta;
+  font-weight: $fw;
 }
 
 @mixin numFont($fz: 70px, $c: #333, $lh: 1em) {
@@ -33,6 +41,7 @@ $fontStyle: "Roboto", sans-serif;
   color: $c;
   letter-spacing: 0;
   font-family: $titleStyle;
+  font-weight: 800;
 }
 
 /*color*/
@@ -90,5 +99,235 @@ $circleColor: #aaa;
   @media screen and (max-width: $mobile) {
     padding-top: 60px;
     padding-bottom: 100px;
+  }
+}
+
+/*form*/
+/*table style*/
+@mixin tableTitle() {
+  h2 {
+    @include title2($fz: 30px, $color: #333);
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: left;
+    em,
+    span {
+      display: block;
+      line-height: 1.5;
+    }
+    span {
+      font-size: 20px;
+      font-weight: 500;
+      color: #999;
+      padding-bottom: 10px;
+    }
+  }
+  @media screen and (max-width: $mobile) {
+    h2 {
+      font-size: 23px;
+      margin-bottom: 10px;
+      em,
+      span {
+        line-height: 1.3;
+      }
+      span {
+        font-size: 17px;
+        padding-bottom: 10px;
+      }
+    }
+  }
+}
+
+@mixin tableStyle($thW: 20%, $sw: 30%) {
+  @include tableTitle();
+  table {
+    width: 100%;
+
+    th {
+      width: $thW;
+      text-align: left;
+      padding: 10px 0;
+      height: 90px;
+      box-sizing: border-box;
+      color: #666;
+
+      &:last-child {
+        border: none;
+        text-align: center;
+        background: #fff;
+        font-size: 0;
+        padding-top: 60px;
+      }
+      label {
+        font-family: $fontStyle;
+        font-size: 20px;
+        font-weight: 600;
+        color: #555;
+      }
+      input[type="reset"],
+      input[type="submit"] {
+        margin: 0 10px;
+        width: 150px;
+        height: 50px;
+        line-height: 50px;
+        font-family: $titleStyle;
+        font-size: 20px;
+        font-weight: 600;
+        border: none;
+        background: #444;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.25s ease;
+        &:hover,
+        &:active,
+        &:focus {
+          background-color: $mainColor;
+        }
+      }
+    }
+
+    td {
+      padding: 10px 0 10px 30px;
+
+      input[type="text"],
+      input[type="password"],
+      select {
+        width: 100%;
+        height: 30px;
+        padding: 30px 20px;
+        border: none;
+        font-size: 18px;
+        font-family: $fontStyle;
+        font-weight: 400;
+        color: #333;
+        background-color: #ededed;
+        box-sizing: border-box;
+        border-radius: 5px;
+      }
+
+      label {
+        color: #555;
+        margin-right: 30px;
+      }
+
+      #country {
+        width: 100%;
+        height: 60px;
+        padding: 0 20px;
+        line-height: 60px;
+        resize: none;
+      }
+      .hobbyTxt,
+      .genderTxt {
+        color: $mainColor;
+        margin-bottom: 5px;
+        display: none;
+      }
+    }
+  }
+
+  /* tablet */
+  @media screen and (max-width: $tablet) {
+    table {
+      th {
+        width: 0%;
+        display: none;
+
+        &:last-child {
+          padding-top: 30px;
+          width: 100%;
+          display: block;
+        }
+      }
+
+      td {
+        input[type="text"],
+        input[type="password"],
+        select {
+          width: 50%;
+        }
+
+        #country {
+          width: 90%;
+        }
+
+        .hobbyTxt,
+        .genderTxt {
+          display: block;
+        }
+      }
+    }
+  }
+
+  /* mobile */
+  @media screen and (max-width: $mobile) {
+    table {
+      th {
+        input[type="reset"],
+        input[type="submit"] {
+          width: 40%;
+          margin: 0 5%;
+          font-size: 18px;
+        }
+      }
+
+      td {
+        padding-left: 0;
+        input[type="text"],
+        input[type="password"],
+        select {
+          width: 100%;
+          padding: 25px 15px;
+        }
+
+        #country {
+          width: 100%;
+          height: 50px;
+          line-height: 50px;
+        }
+
+        label {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+@mixin agreement() {
+  #terms {
+    width: 100%;
+    height: 300px;
+    padding: 30px;
+    color: #555;
+    background: #ededed;
+    margin-bottom: 10px;
+    resize: none;
+    border: none;
+    font-family: $fontStyle;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 1.8;
+    border-radius: 5px;
+    @include tableTitle();
+  }
+  .agreement {
+    text-align: right;
+    font-size: 12px;
+    margin-bottom: 70px;
+    line-height: 1.5;
+  }
+  input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+  .agree {
+    font-family: $fontStyle;
+    font-size: 18px;
+    vertical-align: middle;
+    color: #333;
   }
 }
