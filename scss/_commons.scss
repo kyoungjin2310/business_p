@@ -102,6 +102,28 @@ $circleColor: #aaa;
   }
 }
 
+/*btn Style*/
+@mixin btnStyle($m: 0 10px) {
+  margin: $m;
+  width: 150px;
+  height: 50px;
+  line-height: 50px;
+  font-family: $titleStyle;
+  font-size: 20px;
+  font-weight: 600;
+  border: none;
+  background: #444;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $mainColor;
+  }
+}
+
 /*form*/
 /*table style*/
 @mixin tableTitle() {
@@ -166,24 +188,7 @@ $circleColor: #aaa;
       }
       input[type="reset"],
       input[type="submit"] {
-        margin: 0 10px;
-        width: 150px;
-        height: 50px;
-        line-height: 50px;
-        font-family: $titleStyle;
-        font-size: 20px;
-        font-weight: 600;
-        border: none;
-        background: #444;
-        color: #fff;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.25s ease;
-        &:hover,
-        &:active,
-        &:focus {
-          background-color: $mainColor;
-        }
+        @include btnStyle();
       }
     }
 
@@ -274,7 +279,7 @@ $circleColor: #aaa;
 }
 
 @mixin agreement() {
-  #terms {
+  .terms {
     width: 100%;
     height: 300px;
     padding: 30px;
@@ -307,5 +312,12 @@ $circleColor: #aaa;
     font-size: 18px;
     vertical-align: middle;
     color: #333;
+  }
+  .btnStyle {
+    text-align: center;
+    input[type="reset"],
+    input[type="submit"] {
+      @include btnStyle(0);
+    }
   }
 }
