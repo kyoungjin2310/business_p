@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign In</title>
+    <title>Sign in</title>
     <script
       src="https://kit.fontawesome.com/716084ccb4.js"
       crossorigin="anonymous"
     ></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&family=Noto+Sans+KR:wght@400;500;700;900&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&family=Russo+One&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;700;900&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&family=Russo+One&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/sub_layout.css" />
@@ -44,73 +44,87 @@
         </nav>
       </div>
     </header>
-    <section class="content formStyle">
-      <div class="formStyleVisual">
-        <img
-          src="https://images.unsplash.com/photo-1620121692029-d088224ddc74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
-          alt="home visual image"
-        />
-      </div>
-      <div class="inner">
-        <h1 class="formStyleTitle">Sign In</h1>
-        <p class="formStyleTxt">Create your Aléatoire account</p>
-        <div class="formStyleWrap signIn">
-          <form action="index.html" method="get">
-            <fieldset>
-              <legend class="h">Sign In's form</legend>
-              <h2 class="h">Sign In</h2>
-              <table>
-                <caption class="h">
-                  Sign In's form
-                </caption>
-                <tr scope="row">
-                  <th><label for="loginId">User Id</label></th>
-                  <td>
-                    <input
-                      type="text"
-                      name="loginId"
-                      id="loginId"
-                      placeholder="Enter your user id."
-                      required
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row"><label for="pwd1">Password</label></th>
-                  <td>
-                    <input
-                      type="password"
-                      name="pwd1"
-                      id="pwd1"
-                      placeholder="Enter your password."
-                      required
-                    />
-                  </td>
-                </tr>
-                <tr class="pdt">
-                  <th class="h">Turn on AutoSave</th>
-                  <td>
-                    <div class="rememberMe">
-                      <input
-                        type="checkbox"
-                        name="rememberMe"
-                        id="rememberMe"
-                      />
-                      <label for="rememberMe" class="rememberMe"
-                        >Remember Me</label
-                      >
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th colspan="2">
-                    <input type="submit" value="Sign In" class="signInBtn" />
-                  </th>
-                </tr>
-              </table>
-            </fieldset>
-          </form>
+    <section class="content">
+      <div class="visual">
+        <h1><span>Sign In</span></h1>
+        <!--컨텐츠 들어가는 부분 -->
+        <div class="img">
+          <img
+            src="https://images.unsplash.com/photo-1510074377623-8cf13fb86c08?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2072&q=80"
+            alt="contact"
+          />
         </div>
+      </div>
+      <div class="contentWrap">
+        <article class="contact">
+          <div class="formStyle">
+            <h2>Sign In</h2>
+            <p class="formStyleTxt">
+              New user? <a href="signUp.html">Create an account</a>
+            </p>
+            <div class="formStyleWrap w700">
+              <form action="index.html" method="get">
+                <fieldset>
+                  <legend class="h">Sign In's form</legend>
+                  <h2 class="h">Sign In</h2>
+                  <table>
+                    <caption class="h">
+                      Sign In's form
+                    </caption>
+                    <tr scope="row">
+                      <th><label for="loginId">User Id</label></th>
+                      <td>
+                        <input
+                          type="text"
+                          name="loginId"
+                          id="loginId"
+                          placeholder="Enter your user id."
+                          required
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><label for="pwd1">Password</label></th>
+                      <td>
+                        <input
+                          type="password"
+                          name="pwd1"
+                          id="pwd1"
+                          placeholder="Enter your password."
+                          required
+                        />
+                      </td>
+                    </tr>
+                    <tr class="pdt">
+                      <th class="h">Turn on AutoSave</th>
+                      <td>
+                        <div class="rememberMe">
+                          <input
+                            type="checkbox"
+                            name="rememberMe"
+                            id="rememberMe"
+                          />
+                          <label for="rememberMe" class="rememberMe"
+                            >Remember Me</label
+                          >
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th colspan="2">
+                        <input
+                          type="submit"
+                          value="Sign In"
+                          class="signInBtn"
+                        />
+                      </th>
+                    </tr>
+                  </table>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
     <footer id="footerSub">
