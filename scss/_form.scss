@@ -237,7 +237,7 @@ $formStyle_responsive: 700px;
     @include title2($fz: 7.5vmin, $color: #000);
   }
   .formStyleTxt {
-    @include title2($fz: 18px, $color: #999, $fw: 500);
+    @include title2($fz: 20px, $color: #999, $fw: 500);
     display: block;
     margin-bottom: 60px;
     a {
@@ -365,7 +365,7 @@ $formStyle_responsive: 700px;
       margin-bottom: 20px;
     }
     .compeletedTxt {
-      @include title2($fz: 18px, $color: #999, $fw: 500);
+      @include title2($fz: 20px, $color: #999, $fw: 500);
     }
   }
 }
@@ -422,7 +422,8 @@ $formStyle_responsive: 700px;
         font-size: 35px;
       }
       .compeletedTxt {
-        @include title2($fz: 18px, $color: #999, $fw: 500);
+        padding: 0 20px;
+        font-size: 18px;
       }
     }
   }
