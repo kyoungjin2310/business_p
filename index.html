@@ -31,22 +31,30 @@
   <body>
     <header id="header">
       <div class="inner">
-        <h1><a href="#">Aléatoire</a></h1>
+        <h1><a href="index.html">Aléatoire</a></h1>
         <nav class="menuWeb">
           <ul id="gnb">
             <li><a href="about.html">About</a></li>
             <li><a href="news.html">News</a></li>
-            <li><a href="service.html">Service</a></li>
+            <li><a href="service.html">PR</a></li>
             <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <ul class="util">
+            <li><a href="signIn.html">Sign In</a></li>
+            <li><a href="signUp.html">Sign Up</a></li>
           </ul>
         </nav>
         <a href="#" class="btnCall">
-          <span>메뉴열기</span>
+          <span>Open or Close</span>
         </a>
         <nav class="menuMo">
           <h1>
             <a href="#">Aléatoire</a>
           </h1>
+          <ul class="util">
+            <li><a href="signIn.html">Sign In</a></li>
+            <li><a href="signUp.html">Sign Up</a></li>
+          </ul>
           <ul id="gnbMo">
             <li><a href="about.html">About</a></li>
             <li><a href="news.html">News</a></li>
@@ -63,17 +71,18 @@
           <div class="swiper-slide box1">
             <div class="visualWrap">
               <h2 class="visualTitle">
-                <em>Let’s create</em>something that changes everything
+                <em>Let’s create<span>.</span></em>
               </h2>
               <h3 class="visualSubTitle">
                 Collaboration <span>+</span> Technology
               </h3>
               <p class="visualTxt">
-                Transform your business with a trusted partner, open
-                technologies and an empathetic approach. Explore Aléatoire
-                Consulting
+                Cloud native applications deliver faster time to market, higher
+                scalability, simpler management and reduce cost through
+                containerization, microservices, automation and DevOps
+                practices. Aléatoire provides reference architectures.
               </p>
-              <a href="about.html"></a>
+              <a class="visualBtn" href="about.html">View Details</a>
             </div>
             <img
               src="https://images.unsplash.com/photo-1610678152303-cb580bcff47b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
@@ -81,37 +90,116 @@
             />
           </div>
           <div class="swiper-slide box2">
+            <div class="visualWrap">
+              <h2 class="visualTitle">
+                <em>Elevate workforce<span>.</span></em>
+              </h2>
+              <h3 class="visualSubTitle">
+                upskill <span>+</span> methodologies
+              </h3>
+              <p class="visualTxt">
+                Provide a superior customer experience and enhance technical
+                agility with open and portable applications, deployable on any
+                cloud, improving your time to market and your response to
+                customers.
+              </p>
+              <a class="visualBtn" href="history.html">View Details</a>
+            </div>
             <img
               src="https://images.unsplash.com/photo-1601923112035-3e4819c82317?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
               alt=""
             />
           </div>
           <div class="swiper-slide box3">
+            <div class="visualWrap">
+              <h2 class="visualTitle">
+                <em>We Go Together<span>.</span></em>
+              </h2>
+              <h3 class="visualSubTitle">
+                Experiences <span>+</span> Solutions
+              </h3>
+              <p class="visualTxt">
+                We partner with our clients to determine the right set of
+                solutions and applications needed for success. We bring business
+                and experience design, and diverse, industry-specific technical
+                expertise to life inside our teams.
+              </p>
+              <a class="visualBtn" href="contact.html">View Details</a>
+            </div>
             <img
               src="https://images.unsplash.com/photo-1510146758428-e5e4b17b8b6a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
               alt=""
             />
           </div>
           <div class="swiper-slide box4">
+            <div class="visualWrap">
+              <h2 class="visualTitle">
+                <em>Cybersecurity services<span>.</span></em>
+              </h2>
+              <h3 class="visualSubTitle">Innovation <span>+</span> Security</h3>
+              <p class="visualTxt">
+                With the industry’s broadest portfolio of consulting and global
+                managed security services, Aléatoire Security™ Services can help
+                you quantify and prioritize your risks. Our professionals
+                deliver industry-leading assessments.
+              </p>
+              <a class="visualBtn" href="history.html">View Details</a>
+            </div>
             <img
               src="https://images.unsplash.com/photo-1496283284170-5d0a178f1180?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
               alt=""
             />
           </div>
         </div>
-
         <!-- navigation- prev,next버튼 -->
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
-        <div class="navination">0 /4</div>
-
+        <div class="pageNavi">
+          <span class="current"></span>/<span class="total"></span>
+        </div>
         <!-- 페이징 -->
-
         <ul class="auto">
-          <li class="btnStart">롤링시작</li>
-          <li class="btnStop">롤링정지</li>
+          <li class="btnStart">
+            <i class="fas fa-play"></i><span class="h">Play</span>
+          </li>
+          <li class="btnStop">
+            <i class="fas fa-pause"></i><span class="h">Pause</span>
+          </li>
         </ul>
+      </div>
+      <div class="scorll">
+        <div class="svg">
+          <svg viewBox="0 0 465 465" style="enable-background: new 0 0 465 465">
+            <path
+              d="M346.736,44.623C321.494,15.014,283.06,0,232.5,0s-88.994,15.014-114.236,44.623c-25.38,29.771-29.169,64.65-29.169,82.792
+	v210.171c0,18.142,3.789,53.021,29.169,82.792C143.506,449.987,181.94,465,232.5,465s88.994-15.013,114.236-44.622
+	c25.38-29.771,29.169-64.65,29.169-82.792V127.415C375.905,109.273,372.116,74.394,346.736,44.623z M232.5,162
+	c-10.477,0-19-8.523-19-19v-40.716c0-10.477,8.523-19,19-19s19,8.523,19,19V143C251.5,153.477,242.977,162,232.5,162z
+	 M360.905,337.586c0,18.771-6.19,112.414-128.405,112.414s-128.405-93.643-128.405-112.414V127.415
+	c0-18.379,5.953-108.516,120.905-112.279v53.992c-15.15,3.426-26.5,16.985-26.5,33.156V143c0,16.171,11.35,29.73,26.5,33.156v61.628
+	c0,4.143,3.357,7.5,7.5,7.5s7.5-3.357,7.5-7.5v-61.628c15.15-3.426,26.5-16.985,26.5-33.156v-40.716
+	c0-16.171-11.35-29.73-26.5-33.156V15.136c114.953,3.764,120.905,93.9,120.905,112.279V337.586z"
+            />
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+          </svg>
+          <i class="fa-solid fa-angles-down"></i>
+        </div>
+        <p>Scroll Down</p>
       </div>
     </section>
     <section id="news">

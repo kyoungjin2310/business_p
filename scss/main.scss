@@ -3,6 +3,45 @@
 @import "reset";
 @import "commons";
 
+/*swiper commons*/
+.swiper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  .swiper-wrapper {
+    transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+  }
+}
+
+.box1 {
+  background: pink;
+}
+.box2 {
+  background: lightblue;
+}
+.box3 {
+  background: orange;
+}
+.box4 {
+  background: lightgreen;
+}
+
+.auto {
+  position: absolute;
+  top: 150px;
+  right: 100px;
+  z-index: 10;
+  li {
+    float: left;
+    margin-left: 30px;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    line-height: 20px;
+    font-size: 20px;
+  }
+}
+
 /* header */
 #header {
   position: absolute;
@@ -18,31 +57,50 @@
     > h1 {
       position: absolute;
       left: 100px;
-      bottom: 9px;
+      top: 38px;
       > a {
-        font-family: $titleStyle;
-        font-size: 24px;
-        letter-spacing: 0;
-        color: #fff;
-        font-weight: 800;
+        @include title2($ta: left, $fz: 24px, $color: #fff);
+      }
+    }
+
+    li {
+      float: left;
+      a {
+        @include title2($ta: left, $fz: 16px, $color: #fff);
+        display: block;
+        margin-left: 65px;
+        padding: 20px 0;
+        &:hover {
+          color: #fff;
+        }
       }
     }
     #gnb {
       position: absolute;
-      right: 100px;
+      left: 275px;
       bottom: 19px;
-      li {
-        float: left;
+    }
+    .util {
+      position: absolute;
+      right: 100px;
+      top: 29px;
+      li:first-child {
         a {
-          display: block;
-          margin-left: 65px;
-          font-weight: 900;
-          letter-spacing: 0;
-          font-size: 16px;
-          color: #fff;
-          &:hover {
-            color: #fff;
-          }
+          padding: 14px 16px;
+          border: none;
+        }
+      }
+      a {
+        margin-left: 20px;
+        padding: 13px 15px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        box-sizing: border-box;
+        line-height: 16px;
+        border-radius: 5px;
+        transition: 0.25s ease;
+        &:hover {
+          background: $mainColor;
+          border-color: $mainColor;
         }
       }
     }
@@ -117,31 +175,14 @@
       &.on {
         transform: translateX(0);
       }
-    }
-
-    h1 {
-      padding-bottom: 30px;
-    }
-    a {
-      display: inline-block;
-      color: #fff;
-      font-family: $titleStyle;
-      font-size: 60px;
-      line-height: 1em;
-    }
-    span {
-      font-size: 12px;
-      color: #aaa;
-    }
-    ul li a {
-      display: inline-block;
-      padding: 20px 0;
-      font-family: $titleStyle;
-      font-size: 40px;
-      color: #888;
-      line-height: 1em;
-      letter-spacing: 0;
-      font-weight: 800;
+      h1 {
+        padding-bottom: 30px;
+      }
+      ul li a {
+        display: inline-block;
+        font-size: 60px;
+        line-height: 1em;
+      }
     }
   }
 }
@@ -154,7 +195,7 @@
   overflow: hidden;
   .visualWrap {
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 100px;
     z-index: 1;
   }
@@ -164,44 +205,188 @@
     left: 0;
     vertical-align: middle;
   }
-}
+  .swiper-slide {
+    img {
+      filter: brightness(0.7);
+    }
+  }
+  .box1 {
+    img {
+      filter: brightness(1);
+    }
+  }
+  .visualTitle {
+    @include title2($ta: left, $fz: 90px, $color: #fff);
+    em {
+      line-height: 1;
+    }
+    span {
+      margin-left: 10px;
+      @include title2($ta: left, $fz: 80px, $color: #fff);
+    }
+  }
+  .visualSubTitle {
+    position: relative;
+    margin-top: 40px;
+    line-height: 1;
+    padding: 0 60px;
+    display: inline-block;
+    @include title2($ta: left, $fz: 60px, $color: #fff);
+    span {
+      color: $mainColor2;
+    }
+    &::after {
+      content: "[";
+      display: block;
+      position: absolute;
+      top: -25px;
+      left: 0;
+      @include title2($ta: left, $fz: 100px, $color: $mainColor2, $fw: 600);
+    }
+    &::before {
+      content: "]";
+      display: block;
+      position: absolute;
+      top: -25px;
+      right: 0;
+      @include title2($ta: left, $fz: 100px, $color: $mainColor2, $fw: 600);
+    }
+  }
+  .visualTxt {
+    max-width: 700px;
+    margin-top: 60px;
+    @include title2(
+      $ta: left,
+      $fz: 18px,
+      $color: #fff,
+      $fw: 400,
+      $ff: $fontStyle
+    );
+    line-height: 1.8;
+  }
+  .visualBtn {
+    margin-top: 60px;
+    display: inline-block;
+    padding: 15px 50px;
+    background-color: $mainColor;
+    @include title2($fz: 20px, $color: #fff);
+    &:hover {
+      background-color: #fff;
+      color: $mainColor;
+    }
+  }
+  /*swiper pagination*/
+  .swiper-pagination {
+    display: inline-block;
+    top: 150px;
+    height: 20px;
+    text-align: right;
+    padding-right: 190px;
+  }
+  .swiper-button-prev,
+  .swiper-rtl .swiper-button-next,
+  .swiper-button-next,
+  .swiper-rtl .swiper-button-prev {
+    left: auto;
+    top: 350px;
+    right: 100px;
+    width: 60px;
+    height: 60px;
+    color: #fff;
+    opacity: 0.7;
+    font-size: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    &::after {
+      transform: scale(0.5);
+    }
+    &:hover {
+      opacity: 1;
+      border: 1px solid $mainColor;
+      background-color: $mainColor;
+    }
+  }
 
-.swiper {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
+  .swiper-button-prev,
+  .swiper-rtl .swiper-button-next {
+    right: 180px;
+  }
 
-.box1 {
-  background: pink;
-}
-.box2 {
-  background: lightblue;
-}
-.box3 {
-  background: orange;
-}
-.box4 {
-  background: lightgreen;
-}
+  .swiper-pagination-bullet {
+    position: relative;
+    margin-right: 30px;
+    @include numFont($fz: 18px, $c: rgba(255, 255, 255, 0.5));
+    font-weight: 600;
+    background: none;
+    width: auto;
+    height: auto;
+    opacity: 1;
+    // transition: margin 0.5s ease;
+    &::after {
+      @include cont_poa();
+      bottom: 2px;
+      left: 35px;
+      width: 0;
+      height: 2px;
+      background-color: rgba(255, 255, 255, 0.5);
+      // transition: width 0.5s ease;
+    }
+    &:last-child {
+      margin-right: 0;
+      &.swiper-pagination-bullet-active {
+        margin-right: 80px;
+      }
+    }
+  }
+  .swiper-pagination-bullet-active {
+    font-weight: 800;
+    margin-left: 0;
+    margin-right: 80px;
+    color: #fff;
+    &::after {
+      width: 60px;
+      display: block;
+    }
+  }
+  .pageNavi {
+    position: absolute;
+    top: 203px;
+    right: 100px;
+    @include numFont($fz: 40px, $c: rgba(255, 255, 255, 0.7));
+    font-family: $fontStyle;
+    z-index: 1;
+    .current {
+      padding-right: 20px;
+      @include numFont($fz: 90px, $c: #fff);
+    }
+    .total {
+      padding-left: 20px;
+      @include numFont($fz: 40px, $c: rgba(255, 255, 255, 0.7));
+    }
+  }
 
-.auto {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  z-index: 10;
-}
-
-.auto li {
-  width: 80px;
-  height: 20px;
-  float: left;
-  margin-right: 20px;
-  color: #fff;
-  text-align: center;
-  cursor: pointer;
-  line-height: 20px;
-  border: 1px solid #fff;
+  .scorll {
+    position: absolute;
+    right: 100px;
+    bottom: 50px;
+    z-index: 1;
+    text-align: center;
+    font-weight: 600;
+    color: $mainColor2;
+    opacity: 0.8;
+    svg {
+      width: 60px;
+      fill: $mainColor2;
+      opacity: 0.8;
+    }
+    i {
+      margin-top: 10px;
+      margin-bottom: 20px;
+      display: block;
+      font-size: 20px;
+    }
+  }
 }
 
 /* news */
@@ -279,7 +464,7 @@
 #footer {
   width: 100%;
   padding: 100px 30px;
-  background: #444;
+  background: #222;
 }
 #footer .inner {
   max-width: 1200px;

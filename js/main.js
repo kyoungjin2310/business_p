@@ -1,5 +1,11 @@
 const btnCall = document.querySelector(".btnCall");
 const menuMo = document.querySelector(".menuMo");
+const total = document.querySelector(".total");
+const current = document.querySelector(".current");
+const slide = document.querySelectorAll("#visual .swiper-slide");
+const active = document.querySelectorAll("#visual .swiper-pagination-bullet");
+
+//header
 btnCall.onclick = (e) => {
   e.preventDefault();
 
@@ -8,12 +14,13 @@ btnCall.onclick = (e) => {
 };
 
 // visual
+total.innerText = slide.length;
+
 const visual = new Swiper("#visual .mySwiper", {
   direction: "horizontal",
   slidesPerView: "auto",
   spaceBetween: 0,
   centeredSlides: false,
-  grabCursor: true,
   loop: true,
   keyboard: true,
   navigation: {
@@ -23,10 +30,21 @@ const visual = new Swiper("#visual .mySwiper", {
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
+    renderBullet: function (index, className) {
+      return (
+        '<span class="' + className + '">' + ("0" + (index + 1)) + "</span>"
+      );
+    },
   },
   autoplay: {
     delay: 2500,
     disableOnInteraction: true,
+  },
+  speed: 1000,
+  on: {
+    slideChange: function () {
+      visualActive();
+    },
   },
 });
 
@@ -34,6 +52,15 @@ visual.autoplay.stop();
 
 const visualBtnStart = document.querySelector("#visual .btnStart");
 const visualBtnStop = document.querySelector("#visual .btnStop");
+
+function visualActive() {
+  const active = document.querySelectorAll("#visual .swiper-pagination-bullet");
+  for (let i = 0; i < active.length; i++) {
+    if (active[i].classList.contains("swiper-pagination-bullet-active")) {
+      current.innerText = i + 1;
+    }
+  }
+}
 
 visualBtnStart.addEventListener("click", () => {
   visual.autoplay.start();
@@ -109,3 +136,8 @@ const pr = new Swiper("#pr .mySwiper", {
     prevEl: ".swiper-button-prev",
   },
 });
+
+window.onload = () => {
+  //visual
+  visualActive();
+};
