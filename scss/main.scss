@@ -889,11 +889,11 @@ section {
   width: 100%;
   min-height: 600px;
   max-width: 1920px;
-  padding: 50px 0;
+  padding: 100px 0;
   box-sizing: border-box;
   text-align: center;
   .inner {
-    padding: 100px 0;
+    padding: 70px 0 60px;
     background-color: #f8f9fd;
     ul {
       max-width: 1920px;
@@ -926,7 +926,7 @@ section {
       }
     }
     .contMainTxt {
-      margin-bottom: 60px;
+      margin-bottom: 100px;
     }
   }
   .svg {
