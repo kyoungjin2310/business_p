@@ -13,19 +13,6 @@
   }
 }
 
-.box1 {
-  background: pink;
-}
-.box2 {
-  background: lightblue;
-}
-.box3 {
-  background: orange;
-}
-.box4 {
-  background: lightgreen;
-}
-
 .auto {
   position: absolute;
   top: 150px;
@@ -453,7 +440,6 @@ section {
 /* news */
 #news {
   width: 100%;
-  max-width: 1920px;
   padding: 150px 0;
   box-sizing: border-box;
   .titleWrap {
@@ -613,13 +599,168 @@ section {
 #history {
   width: 100%;
   max-width: 1920px;
-  padding: 0 100px 100px;
+  margin: 0 0 200px;
   box-sizing: border-box;
+  .titleWrap {
+    margin-top: 60px;
+    text-align: center;
+    margin-bottom: 100px;
+    .contMainTitle {
+      &::after {
+        top: -50px;
+        left: 50%;
+        margin-left: -50px;
+      }
+    }
+  }
+  .content,
+  .txt {
+    position: absolute;
+    left: 50%;
+    bottom: -20px;
+  }
+  .txt {
+    opacity: 0;
+  }
+  .content {
+    width: 26vw;
+    height: 600px;
+    margin-left: -30vw;
+    z-index: 5;
+    padding: 40px 50px;
+    background-color: rgba(0, 64, 184, 0.9);
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.5;
+    h2 {
+      position: relative;
+      @include numFont($fz: 82px, $c: #fff);
+      margin-top: 20px;
+      margin-bottom: 90px;
+      span {
+        opacity: 0.8;
+        margin-left: 10px;
+        @include numFont($fz: 22px, $c: #fff);
+        letter-spacing: 8px;
+      }
+      &::after {
+        @include cont_poa();
+        bottom: -50px;
+        left: 0;
+        width: 50px;
+        height: 5px;
+        background-color: #fff;
+      }
+    }
+    h3 {
+      position: relative;
+      display: inline-block;
+      padding-left: 30px;
+      @include title2($ta: left, $fz: 30px, $color: #fff);
+      margin-bottom: 40px;
+      &::before {
+        content: "[";
+        position: absolute;
+        top: 50%;
+        margin-top: -30px;
+        left: 0px;
+        opacity: 0.7;
+        font-size: 40px;
+        color: #fff;
+      }
+      &::after {
+        content: "]";
+        position: absolute;
+        top: 50%;
+        margin-top: -30px;
+        right: -30px;
+        opacity: 0.7;
+        font-size: 40px;
+        color: #fff;
+      }
+      span {
+        opacity: 0.7;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+    }
+    p {
+      opacity: 0.7;
+      height: 120px;
+      overflow: hidden;
+    }
+    a {
+      display: inline-block;
+      margin-top: 60px;
+      padding: 8px 35px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      background-color: rgba(255, 255, 255, 0.1);
+      @include title2($ta: left, $fz: 16px, $color: #fff);
+      &:hover {
+        background-color: #fff;
+        color: $mainColor;
+      }
+    }
+  }
   h1 {
     margin-bottom: 100px;
   }
   .swiper {
-    height: 400px;
+    padding-bottom: 9vh;
+    .swiper-slide {
+      height: 400px;
+      overflow: hidden;
+    }
+    .swiper-slide-active {
+      img {
+        width: 100%;
+        filter: grayscale(0);
+      }
+    }
+    .swiper-button-prev,
+    .swiper-rtl .swiper-button-next,
+    .swiper-button-next,
+    .swiper-rtl .swiper-button-prev {
+      width: 60px;
+      height: 60px;
+      color: $mainColor;
+      font-size: 10px;
+      background-color: #eaebed;
+      border-radius: 50%;
+      &::after {
+        transform: scale(0.6);
+        color: #222;
+      }
+      &:hover {
+        opacity: 1;
+        background-color: $mainColor;
+        &::after {
+          color: #fff;
+        }
+      }
+    }
+    .swiper-button-next,
+    .swiper-rtl .swiper-button-prev {
+      right: 50%;
+      margin-right: -24.2vw;
+      top: auto;
+      bottom: 0;
+    }
+    .swiper-button-prev,
+    .swiper-rtl .swiper-button-next {
+      right: 50%;
+      margin-right: -20vw;
+      top: auto;
+      left: auto;
+      bottom: 0;
+    }
+  }
+  .pic {
+    height: 100%;
+    img {
+      width: 100%;
+      filter: grayscale(1);
+    }
   }
 }
 
@@ -632,8 +773,114 @@ section {
   h1 {
     margin-bottom: 100px;
   }
+  .titleWrap {
+    text-align: center;
+    .contMainTitle {
+      &::after {
+        top: -50px;
+        left: 50%;
+        margin-left: -50px;
+      }
+    }
+  }
   .swiper {
-    height: 400px;
+    position: relative;
+    height: 500px;
+    padding-bottom: 100px;
+    .swiper-button-prev,
+    .swiper-rtl .swiper-button-next,
+    .swiper-button-next,
+    .swiper-rtl .swiper-button-prev {
+      width: 60px;
+      height: 60px;
+      color: $mainColor;
+      font-size: 10px;
+      background-color: #eaebed;
+      border-radius: 50%;
+      &::after {
+        transform: scale(0.6);
+        color: #222;
+      }
+      &:hover {
+        opacity: 1;
+        background-color: $mainColor;
+        &::after {
+          color: #fff;
+        }
+      }
+    }
+    .swiper-button-next,
+    .swiper-rtl .swiper-button-prev {
+      right: 50%;
+      margin-right: -70px;
+      top: auto;
+      bottom: 0px;
+    }
+    .swiper-button-prev,
+    .swiper-rtl .swiper-button-next {
+      right: 50%;
+      margin-right: 10px;
+      top: auto;
+      left: auto;
+      bottom: 0px;
+    }
+  }
+  .prWrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .num {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    @include title2($ta: left, $fz: 20px, $color: #fff);
+    background-color: $mainColor;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+  }
+  .content {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 30px 40px;
+    width: 100%;
+    color: #fff;
+    background: rgb(0, 86, 241);
+    background: linear-gradient(
+      0deg,
+      rgba(0, 86, 241, 0.7) 30%,
+      rgba(0, 86, 241, 0) 100%
+    );
+    h2 {
+      @include title2($ta: left, $fz: 30px, $color: #fff);
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    p {
+      height: 50px;
+      margin-bottom: 10px;
+      font-size: 16px;
+      line-height: 1.5;
+      overflow: hidden;
+    }
+    a {
+      @include title2($ta: left, $fz: 18px, $color: #fff);
+      i {
+        margin-left: 20px;
+      }
+    }
+  }
+  .pic {
+    height: 100%;
+    overflow: hidden;
+    img {
+      height: 100%;
+    }
   }
 }
 
@@ -642,27 +889,582 @@ section {
   width: 100%;
   min-height: 600px;
   max-width: 1920px;
-  padding: 100px;
+  padding: 100px 0;
   box-sizing: border-box;
-  h1 {
-    margin-bottom: 20px;
+  text-align: center;
+  .inner {
+    padding: 100px 0;
+    background-color: #f8f9fd;
+    ul {
+      max-width: 1920px;
+      margin: 0 70px;
+      &::after {
+        @include cb();
+      }
+      li {
+        float: left;
+        width: calc(100% / 4);
+        padding: 30px;
+        h3 {
+          margin: 30px 0 10px;
+          @include title2($fz: 25px, $color: #444, $ff: $fontStyle);
+          line-height: 1.5;
+        }
+      }
+    }
   }
-  svg {
-    width: 64px;
-    height: 64px;
+  h1 {
+    margin-bottom: 100px;
+  }
+  .titleWrap {
+    text-align: center;
+    .contMainTitle {
+      &::after {
+        top: -50px;
+        left: 50%;
+        margin-left: -50px;
+      }
+    }
+    .contMainTxt {
+      margin-bottom: 60px;
+    }
+  }
+  .svg {
+    position: relative;
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 6px 8px 2px 1px rgba(0, 86, 241, 0.2);
+    svg {
+      @include center();
+      width: 70px;
+      height: 70px;
+      fill: $mainColor;
+    }
   }
 }
+
+/*commons*/
+$svgColor: #4b8cff;
+$svgColor2: $mainColor;
 
 /* contact */
 #contact {
   width: 100%;
   min-height: 600px;
-  max-width: 1920px;
-  padding: 0 100px;
+  max-width: 1260px;
+  margin: 0 auto 150px;
   box-sizing: border-box;
-  background-color: #f8f9fd;
+  font-size: 16px;
+  line-height: 1.5;
   h1 {
     margin-bottom: 100px;
+  }
+  .inner {
+    position: relative;
+    margin: 30px 0;
+    padding: 40px;
+    border-radius: 30px;
+    background-color: #f8f9fd;
+    &::after {
+      @include cb();
+    }
+    .txt {
+      float: right;
+      width: calc(100% - 370px);
+    }
+  }
+  .svg {
+    float: left;
+    width: 300px;
+    svg {
+      max-width: 300px;
+      padding: 30px;
+      box-sizing: content-box;
+      border-radius: 30px;
+      background-color: #fff;
+      box-shadow: 12px 12px 2px 1px rgba(0, 86, 241, 0.2);
+    }
+    .st0 {
+      fill: #eeedf2;
+    }
+    .st1 {
+      fill: none;
+      stroke: $svgColor;
+      stroke-width: 6;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st2 {
+      fill: #efc12f;
+      stroke: $svgColor;
+      stroke-width: 6;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st3 {
+      fill: none;
+      stroke: $svgColor;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st4 {
+      fill: #ffffff;
+      stroke: $svgColor;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st5 {
+      fill: #fcf5f2;
+      stroke: $svgColor;
+      stroke-width: 5;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st6 {
+      fill: #fcf5f2;
+      stroke: $svgColor;
+      stroke-width: 6;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st7 {
+      fill: $svgColor;
+    }
+    .st8 {
+      fill: none;
+      stroke: $svgColor;
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st9 {
+      fill: #eab8b1;
+    }
+    .st10 {
+      fill: #dc9695;
+      stroke: $svgColor;
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st11 {
+      fill: #eeced1;
+      stroke: $svgColor;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st12 {
+      fill: #cb7272;
+      stroke: $svgColor;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st13 {
+      fill: #d3d5e7;
+      stroke: $svgColor;
+      stroke-width: 6;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st14 {
+      fill: #d3d5e7;
+    }
+    .st15 {
+      fill: #ffffff;
+      stroke: $svgColor;
+      stroke-width: 5;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st16 {
+      fill: #ffffff;
+      stroke: $svgColor;
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st17 {
+      fill: #ececee;
+    }
+    .st18 {
+      fill: $svgColor2;
+      stroke: $svgColor;
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st19 {
+      fill: #fcf5f2;
+      stroke: $svgColor;
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st20 {
+      fill: #69aef8;
+      stroke: $svgColor;
+      stroke-width: 6;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st21 {
+      opacity: 0.4;
+      fill: #ffffff;
+    }
+    .st22 {
+      opacity: 0.7;
+      fill: #ffffff;
+    }
+    .st23 {
+      fill: #69adf7;
+      stroke: $svgColor;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st24 {
+      fill: none;
+      stroke: #ffffff;
+      stroke-width: 7;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st25 {
+      fill: #ffffff;
+      stroke: $svgColor;
+      stroke-width: 6;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st26 {
+      fill: #dbe7fe;
+    }
+    .st27 {
+      fill: #d3d5e7;
+      stroke: $svgColor;
+      stroke-width: 5;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st28 {
+      fill: #dd9796;
+      stroke: $svgColor;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st29 {
+      fill: #eeced1;
+      stroke: $svgColor;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st30 {
+      fill: #cb7272;
+      stroke: $svgColor;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st31 {
+      fill: #dbe7fe;
+      stroke: $svgColor;
+      stroke-width: 5;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st32 {
+      fill: #69aef8;
+      stroke: $svgColor;
+      stroke-width: 5;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st33 {
+      fill: #dae6fd;
+      stroke: $svgColor;
+      stroke-width: 6;
+      stroke-miterlimit: 10;
+    }
+    .st34 {
+      fill: #ffffff;
+      stroke: $svgColor;
+      stroke-width: 6;
+      stroke-miterlimit: 10;
+    }
+    .st35 {
+      opacity: 0.69;
+      fill: #ffffff;
+    }
+    .st36 {
+      opacity: 0.95;
+      fill: #ffffff;
+    }
+    .st37 {
+      fill: $svgColor2;
+      stroke: $svgColor;
+      stroke-width: 6;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st38 {
+      fill: #f0c330;
+      stroke: $svgColor;
+      stroke-width: 6;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st39 {
+      fill: $svgColor;
+      stroke: $svgColor;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st40 {
+      fill: #ffffff;
+    }
+    .st41 {
+      fill: #dbe7fe;
+      stroke: $svgColor;
+      stroke-width: 6;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st42 {
+      fill: #f1f6ff;
+    }
+    .st43 {
+      fill: #f0c330;
+      stroke: $svgColor;
+      stroke-width: 5;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st44 {
+      fill: none;
+      stroke: $svgColor;
+      stroke-width: 5;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st45 {
+      fill: #79caa1;
+      stroke: $svgColor;
+      stroke-width: 5;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st46 {
+      fill: #e09287;
+      stroke: $svgColor;
+      stroke-width: 5;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st47 {
+      fill: $svgColor2;
+      stroke: $svgColor;
+      stroke-width: 5;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st48 {
+      fill: #69aef8;
+      stroke: $svgColor;
+      stroke-width: 5;
+      stroke-miterlimit: 10;
+    }
+    .st49 {
+      fill: #d2d4e6;
+      stroke: $svgColor;
+      stroke-width: 5;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st50 {
+      fill: #79caa1;
+      stroke: $svgColor;
+      stroke-width: 5;
+      stroke-miterlimit: 10;
+    }
+    .st51 {
+      fill: #f0c330;
+      stroke: $svgColor;
+      stroke-width: 6;
+      stroke-miterlimit: 10;
+    }
+    .st52 {
+      fill: #eeedf2;
+      stroke: #ffffff;
+      stroke-miterlimit: 10;
+    }
+    .st53 {
+      opacity: 0.3;
+      fill: #a2655f;
+    }
+    .st54 {
+      fill: #79caa1;
+      stroke: $svgColor;
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st55 {
+      fill: #f0c330;
+      stroke: $svgColor;
+      stroke-width: 4.5;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st56 {
+      fill: #d2d4e6;
+    }
+    .st57 {
+      fill: #ffffff;
+      stroke: $svgColor;
+      stroke-width: 5.7826;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10;
+    }
+    .st58 {
+      fill: $svgColor2;
+      stroke: $svgColor;
+      stroke-width: 5.7826;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10;
+    }
+    .st59 {
+      fill: none;
+      stroke: $svgColor;
+      stroke-width: 2.8913;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10;
+    }
+    .st60 {
+      fill: none;
+      stroke: $svgColor;
+      stroke-width: 2.4094;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st61 {
+      fill: #ebebed;
+    }
+    .st62 {
+      fill: #fbf2ed;
+      stroke: $svgColor;
+      stroke-width: 4.5;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st63 {
+      fill: #d3d5e7;
+      stroke: $svgColor;
+      stroke-width: 4.5;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st64 {
+      fill: none;
+      stroke: $svgColor;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st65 {
+      fill: $svgColor2;
+      stroke: $svgColor;
+      stroke-width: 4.5;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st66 {
+      fill: none;
+      stroke: #ffffff;
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10;
+    }
+    .st67 {
+      fill: none;
+      stroke: #ffffff;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st68 {
+      fill: #79caa1;
+      stroke: $svgColor;
+      stroke-width: 6;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st69 {
+      opacity: 0.3;
+      fill: #ffffff;
+    }
+    .st70 {
+      fill: none;
+      stroke: #ffffff;
+      stroke-width: 6;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st71 {
+      fill: #dbe7fe;
+      stroke: $svgColor;
+      stroke-width: 6;
+      stroke-miterlimit: 10;
+    }
+    .st72 {
+      fill: $svgColor2;
+      stroke: $svgColor;
+      stroke-width: 5;
+      stroke-miterlimit: 10;
+    }
+    .st73 {
+      fill: #f5f5f7;
+      stroke: $svgColor;
+      stroke-width: 5;
+      stroke-miterlimit: 10;
+    }
+    .st74 {
+      fill: #d5d6de;
+      stroke: $svgColor;
+      stroke-width: 5;
+      stroke-miterlimit: 10;
+    }
+    .st75 {
+      fill: #d3d5e7;
+      stroke: $svgColor;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st76 {
+      fill: #79caa1;
+    }
+    .st77 {
+      fill: none;
+      stroke: $svgColor;
+      stroke-width: 2.7;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+    }
+    .st78 {
+      fill: #69aef8;
+    }
   }
 }
 

@@ -94,8 +94,16 @@ const news = new Swiper("#news .mySwiper", {
 
 //history
 const history = new Swiper("#history .mySwiper", {
+  effect: "coverflow",
+  coverflowEffect: {
+    rotate: 50,
+    stretch: -200,
+    depth: 0,
+    modifier: 1,
+    slideShadows: false,
+  },
   slidesPerView: 2,
-  spaceBetween: 100,
+  spaceBetween: 60,
   centeredSlides: true,
   pagination: {
     el: ".swiper-pagination",
