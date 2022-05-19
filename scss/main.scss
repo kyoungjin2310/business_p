@@ -390,6 +390,201 @@
   }
 }
 
+@media screen and (max-width: 1490px) {
+  /* visual */
+  #visual {
+    .visualWrap {
+      top: 27vh;
+    }
+    .visualTitle {
+      font-size: 70px;
+      span {
+        font-size: 50px;
+      }
+    }
+    .visualSubTitle {
+      font-size: 40px;
+      &::after {
+        top: -18px;
+        font-size: 70px;
+      }
+      &::before {
+        top: -18px;
+        font-size: 70px;
+      }
+    }
+    .visualBtn {
+      padding: 10px 35px;
+      font-size: 18px;
+    }
+
+    /*swiper pagination*/
+    .swiper-button-prev,
+    .swiper-rtl .swiper-button-next,
+    .swiper-button-next,
+    .swiper-rtl .swiper-button-prev {
+      top: 35vh;
+      width: 50px;
+      height: 50px;
+    }
+
+    .swiper-button-prev,
+    .swiper-rtl .swiper-button-next {
+      right: 170px;
+    }
+    .pageNavi {
+      font-size: 30px;
+      .current {
+        font-size: 60px;
+      }
+      .total {
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  /* visual */
+  #visual {
+    .visualWrap {
+      left: 60px;
+    }
+    .visualTitle {
+      em {
+      }
+      span {
+      }
+    }
+    .visualSubTitle {
+      &::after {
+      }
+      &::before {
+      }
+    }
+    .visualTxt {
+    }
+    .visualBtn {
+    }
+
+    /*swiper pagination*/
+    .swiper-pagination {
+    }
+    .swiper-button-prev,
+    .swiper-rtl .swiper-button-next,
+    .swiper-button-next,
+    .swiper-rtl .swiper-button-prev {
+      top: auto;
+      bottom: 10vh;
+      &::after {
+      }
+    }
+
+    .swiper-button-prev,
+    .swiper-rtl .swiper-button-next {
+    }
+
+    .swiper-pagination-bullet {
+      &::after {
+      }
+      &:last-child {
+        &.swiper-pagination-bullet-active {
+        }
+      }
+    }
+    .swiper-pagination-bullet-active {
+      &::after {
+      }
+    }
+    .pageNavi {
+      .current {
+      }
+      .total {
+      }
+    }
+    .scorll {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  /* visual */
+  #visual {
+    .visualWrap {
+      left: 30px;
+      top: 27vh;
+    }
+    .visualTitle {
+      text-align: center;
+      font-size: 40px;
+      em {
+      }
+      span {
+      }
+    }
+    .visualSubTitle {
+      padding: 0;
+      display: block;
+      text-align: center;
+      font-size: 25px;
+      span {
+        display: block;
+        margin: 10px 0;
+      }
+      &::after {
+        display: none;
+      }
+      &::before {
+        display: none;
+      }
+    }
+    .visualTxt {
+      text-align: center;
+      font-size: 16px;
+    }
+    .visualBtn {
+    }
+
+    /*swiper pagination*/
+    .swiper-pagination {
+      display: none;
+      padding-right: 40px;
+    }
+    .swiper-button-prev,
+    .swiper-rtl .swiper-button-next,
+    .swiper-button-next,
+    .swiper-rtl .swiper-button-prev {
+      top: 35vh;
+      &::after {
+      }
+    }
+
+    .swiper-button-prev,
+    .swiper-rtl .swiper-button-next {
+    }
+
+    .swiper-pagination-bullet {
+      &::after {
+      }
+      &:last-child {
+        &.swiper-pagination-bullet-active {
+        }
+      }
+    }
+    .swiper-pagination-bullet-active {
+      &::after {
+      }
+    }
+    .pageNavi {
+      .current {
+      }
+      .total {
+      }
+    }
+  }
+}
+
 /* main contents commons */
 section {
   position: relative;
@@ -404,7 +599,7 @@ section {
     position: relative;
     display: inline-block;
     @include title2($color: #333, $fz: 5vmin);
-    margin-bottom: 40px;
+    margin: 0 30px 40px;
     &::after {
       @include cont_poa();
       top: -40px;
@@ -420,7 +615,7 @@ section {
     font-size: 18px;
     color: #5d5d5d;
     line-height: 1.5;
-    margin-bottom: 40px;
+    margin: 0 30px 40px;
   }
   .mainViewBtn {
     position: relative;
@@ -446,16 +641,20 @@ section {
     position: relative;
     z-index: 10;
     padding-left: 100px;
-    margin-right: 500px;
+    margin-right: 30vw;
   }
   h1 {
-    margin-left: 400px;
+    margin-left: calc(30vw - 100px);
     margin-bottom: 0px;
   }
   .contMainTitle {
     margin-top: 150px;
+    margin-left: 0;
     text-align: left;
     margin-bottom: 20px;
+  }
+  .contMainTxt {
+    margin-left: 0;
   }
   .inner {
     position: relative;
@@ -609,7 +808,7 @@ section {
       &::after {
         top: -50px;
         left: 50%;
-        margin-left: -50px;
+        margin-left: -2.5vw;
       }
     }
   }
@@ -623,7 +822,7 @@ section {
     opacity: 0;
   }
   .content {
-    width: 26vw;
+    width: 500px;
     height: 600px;
     margin-left: -30vw;
     z-index: 5;
@@ -749,7 +948,7 @@ section {
     .swiper-button-prev,
     .swiper-rtl .swiper-button-next {
       right: 50%;
-      margin-right: -20vw;
+      margin-right: calc(-24.2vw + 80px);
       top: auto;
       left: auto;
       bottom: 0;
@@ -779,7 +978,7 @@ section {
       &::after {
         top: -50px;
         left: 50%;
-        margin-left: -50px;
+        margin-left: -2.5vw;
       }
     }
   }
@@ -857,6 +1056,7 @@ section {
     );
     h2 {
       @include title2($ta: left, $fz: 30px, $color: #fff);
+      margin-bottom: 10px;
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
@@ -922,7 +1122,7 @@ section {
       &::after {
         top: -50px;
         left: 50%;
-        margin-left: -50px;
+        margin-left: -2.5vw;
       }
     }
     .contMainTxt {
@@ -954,7 +1154,7 @@ $svgColor2: $mainColor;
 #contact {
   width: 100%;
   min-height: 600px;
-  max-width: 1260px;
+  max-width: 1340px;
   margin: 0 auto 100px;
   box-sizing: border-box;
   font-size: 16px;
@@ -970,7 +1170,8 @@ $svgColor2: $mainColor;
   }
   .inner {
     position: relative;
-    margin: 30px 0;
+    display: table;
+    margin: 30px 40px;
     padding: 40px;
     border-radius: 30px;
     background-color: #f8f9fd;
@@ -978,8 +1179,9 @@ $svgColor2: $mainColor;
       @include cb();
     }
     .txt {
-      float: right;
-      width: calc(100% - 370px);
+      display: table-cell;
+      vertical-align: middle;
+      padding-left: 70px;
     }
   }
   .view {
@@ -997,15 +1199,17 @@ $svgColor2: $mainColor;
     }
   }
   .svg {
-    float: left;
+    position: relative;
+    display: table-cell;
     width: 300px;
+    padding: 30px;
+    box-sizing: content-box;
+    border-radius: 30px;
+    background-color: #fff;
+    box-shadow: 12px 12px 2px 1px rgba(0, 86, 241, 0.2);
+    vertical-align: middle;
     svg {
       max-width: 300px;
-      padding: 30px;
-      box-sizing: content-box;
-      border-radius: 30px;
-      background-color: #fff;
-      box-shadow: 12px 12px 2px 1px rgba(0, 86, 241, 0.2);
     }
     .st0 {
       fill: #eeedf2;

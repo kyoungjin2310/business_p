@@ -90,6 +90,24 @@ const news = new Swiper("#news .mySwiper", {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
+  breakpoints: {
+    539: {
+      slidesPerView: 1,
+      spaceBetween: 0,
+    },
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 40,
+    },
+    1240: {
+      slidesPerView: 3,
+      spaceBetween: 40,
+    },
+    1440: {
+      slidesPerView: 4,
+      spaceBetween: 60,
+    },
+  },
 });
 
 //history
@@ -117,6 +135,41 @@ const history = new Swiper("#history .mySwiper", {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
+  breakpoints: {
+    539: {
+      slidesPerView: 1,
+      spaceBetween: 0,
+      coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 0,
+        modifier: 1,
+        slideShadows: false,
+      },
+    },
+    540: {
+      slidesPerView: 2,
+      spaceBetween: 30,
+      coverflowEffect: {
+        rotate: 50,
+        stretch: -50,
+        depth: 0,
+        modifier: 1,
+        slideShadows: false,
+      },
+    },
+    1290: {
+      slidesPerView: 2,
+      spaceBetween: 40,
+      coverflowEffect: {
+        rotate: 50,
+        stretch: -200,
+        depth: 0,
+        modifier: 1,
+        slideShadows: false,
+      },
+    },
+  },
 });
 
 //pr
@@ -139,6 +192,20 @@ const pr = new Swiper("#pr .mySwiper", {
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
+  },
+  breakpoints: {
+    539: {
+      slidesPerView: 1,
+      spaceBetween: 0,
+    },
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    1240: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+    },
   },
 });
 
