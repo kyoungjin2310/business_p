@@ -111,6 +111,8 @@ const news = new Swiper("#news .mySwiper", {
 });
 
 //history
+
+//swiper
 const history = new Swiper("#history .mySwiper", {
   effect: "coverflow",
   coverflowEffect: {
@@ -171,6 +173,11 @@ const history = new Swiper("#history .mySwiper", {
     },
   },
 });
+
+//텍스트 변경
+const historySetTitle = document.querySelector(".setTitle");
+const historySetDate = document.querySelector(".setDate");
+const historyGetDate = document.querySelector(".getDate");
 
 //pr
 const pr = new Swiper("#pr .mySwiper", {
