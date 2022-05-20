@@ -7,14 +7,14 @@
 @import "contact";
 @import "form";
 
-/*header*/
+/* header */
 #headerSub {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  z-index: 9;
+  z-index: 100;
   .inner {
     height: 100px;
     margin: 0 auto;
@@ -22,31 +22,63 @@
     > h1 {
       position: absolute;
       left: 100px;
-      bottom: 9px;
+      top: 38px;
       > a {
-        font-family: $titleStyle;
-        font-size: 24px;
-        letter-spacing: 0;
-        color: #fff;
-        font-weight: 800;
+        @include title2($ta: left, $fz: 24px, $color: #fff);
+      }
+    }
+
+    li {
+      float: left;
+      a {
+        @include title2($ta: left, $fz: 16px, $color: #fff);
+        display: block;
+        margin-left: 65px;
+        padding: 20px 0;
       }
     }
     #gnb {
       position: absolute;
-      right: 100px;
-      bottom: 19px;
-      li {
-        float: left;
-        a {
-          display: block;
-          margin-left: 65px;
-          font-weight: 900;
-          letter-spacing: 0;
-          font-size: 16px;
-          color: #fff;
-          &:hover {
-            color: #fff;
+      left: 275px;
+      top: 43px;
+      a {
+        position: relative;
+        padding: 0;
+        &::after {
+          @include cont_poa();
+          bottom: 0;
+          width: 0;
+          height: 2px;
+          background-color: #fff;
+        }
+        &:hover {
+          &::after {
+            width: 100%;
           }
+        }
+      }
+    }
+    .util {
+      position: absolute;
+      right: 100px;
+      top: 29px;
+      li:first-child {
+        a {
+          padding: 14px 16px;
+          border: none;
+        }
+      }
+      a {
+        margin-left: 20px;
+        padding: 13px 15px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        box-sizing: border-box;
+        line-height: 16px;
+        border-radius: 5px;
+        transition: 0.25s ease;
+        &:hover {
+          background: $mainColor;
+          border-color: $mainColor;
         }
       }
     }
@@ -121,31 +153,38 @@
       &.on {
         transform: translateX(0);
       }
-    }
-
-    h1 {
-      padding-bottom: 30px;
-    }
-    a {
-      display: inline-block;
-      color: #fff;
-      font-family: $titleStyle;
-      font-size: 60px;
-      line-height: 1em;
-    }
-    span {
-      font-size: 12px;
-      color: #aaa;
-    }
-    ul li a {
-      display: inline-block;
-      padding: 20px 0;
-      font-family: $titleStyle;
-      font-size: 40px;
-      color: #888;
-      line-height: 1em;
-      letter-spacing: 0;
-      font-weight: 800;
+      h1 {
+        padding-bottom: 30px;
+        a {
+          display: inline-block;
+          color: #fff;
+          font-family: $titleStyle;
+          font-size: 60px;
+          line-height: 1em;
+        }
+      }
+      ul {
+        li {
+          float: none;
+          a {
+            margin-left: 0;
+            display: inline-block;
+            padding: 20px 0;
+            @include title2(
+              $ta: left,
+              $color: #888,
+              $ff: $titleStyle,
+              $fz: 40px,
+              $fw: 800
+            );
+            line-height: 1em;
+            transition: 0.25s ease;
+            &:hover {
+              color: $mainColor;
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -247,81 +286,129 @@
   }
 }
 
-/* footer*/
+/* footer */
 #footerSub {
   width: 100%;
   padding: 100px 30px;
   background: #222;
-  .inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    &::after {
-      content: "";
-      display: block;
-      clear: both;
-    }
-    h1 {
-      font-family: $titleStyle;
-      font-size: 24px;
-      color: #777;
-      float: left;
-      letter-spacing: 0;
-    }
-    ul {
-      float: right;
-      li {
-        float: left;
-        margin-left: 20px;
-        a {
-          font-size: 14px;
-          font-family: "Roboto", sans-serif;
-          font-weight: 600;
-          color: #777;
-          letter-spacing: 0;
-        }
-      }
-    }
-    address {
-      width: 100%;
-      float: left;
-      font-size: 14px;
-      font-style: normal;
-      color: #777;
-      margin-bottom: 20px;
-      border-top: 1px solid #555;
-      padding-top: 20px;
-      margin-top: 20px;
-      font-family: "Roboto", sans-serif;
-      font-weight: 500;
-      letter-spacing: 0;
-    }
-    p {
-      font-family: "Roboto", sans-serif;
-      font-weight: 500;
-      font-size: 12px;
-      color: #666;
-      width: 100%;
-      float: left;
-      letter-spacing: 0;
-    }
-  }
+}
+#footerSub .inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#footerSub .inner::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+#footerSub .inner h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  color: #777;
+  float: left;
+  letter-spacing: 0;
+}
+#footerSub .inner ul {
+  float: right;
+}
+#footerSub .inner ul li {
+  float: left;
+  margin-left: 20px;
+}
+#footerSub .inner ul li a {
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  color: #777;
+  letter-spacing: 0;
+}
+#footerSub .inner address {
+  width: 100%;
+  float: left;
+  font-size: 14px;
+  font-style: normal;
+  color: #777;
+  margin-bottom: 20px;
+  border-top: 1px solid #333;
+  padding-top: 20px;
+  margin-top: 20px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.8;
+}
+#footerSub .inner p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #666;
+  width: 100%;
+  float: left;
+  letter-spacing: 0;
 }
 
 /* tablet */
 @media screen and (max-width: $tablet) {
   /* header */
-  #headerSub .inner {
-    width: 100%;
-    height: 100px;
-    h1 {
-      left: 30px;
-    }
-    .menuWeb {
-      display: none;
-    }
-    .btnCall {
-      display: block;
-      z-index: 100;
+  #headerSub {
+    .inner {
+      width: 100%;
+      height: 100px;
+      h1 {
+        left: 60px;
+      }
+      .menuWeb {
+        display: none;
+      }
+      .menuMo {
+        .util {
+          position: static;
+          right: auto;
+          top: auto;
+          margin-bottom: 40px;
+          li {
+            margin-left: 20px;
+            float: left;
+            a {
+              position: relative;
+              padding: 10px 0;
+              border: none;
+              font-size: 25px;
+              background: none;
+              color: #666;
+            }
+            &:first-child {
+              padding: 0;
+              margin-left: 0;
+              a {
+                padding-left: 0;
+                padding-right: 20px;
+                &::after {
+                  content: "/";
+                  position: absolute;
+                  top: 50%;
+                  right: -5px;
+                  font-size: 20px;
+                  margin-top: -10px;
+                }
+                &:hover {
+                  &::after {
+                    color: #666;
+                  }
+                }
+              }
+            }
+          }
+          &::after {
+            @include cb();
+          }
+        }
+      }
+
+      .btnCall {
+        display: block;
+        z-index: 100;
+      }
     }
   }
   /*visual*/
@@ -351,6 +438,9 @@
   /* menuMo */
   #headerSub {
     .inner {
+      h1 {
+        left: 30px;
+      }
       .menuMo {
         padding: 38px 30px;
         h1 > a {
