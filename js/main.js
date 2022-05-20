@@ -91,7 +91,7 @@ const news = new Swiper("#news .mySwiper", {
     prevEl: ".swiper-button-prev",
   },
   breakpoints: {
-    539: {
+    0: {
       slidesPerView: 1,
       spaceBetween: 0,
     },
@@ -138,7 +138,7 @@ const history = new Swiper("#history .mySwiper", {
     prevEl: ".swiper-button-prev",
   },
   breakpoints: {
-    539: {
+    0: {
       slidesPerView: 1,
       spaceBetween: 0,
       coverflowEffect: {
@@ -201,7 +201,7 @@ const pr = new Swiper("#pr .mySwiper", {
     prevEl: ".swiper-button-prev",
   },
   breakpoints: {
-    539: {
+    0: {
       slidesPerView: 1,
       spaceBetween: 0,
     },

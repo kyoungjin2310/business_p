@@ -394,7 +394,7 @@
   /* visual */
   #visual {
     .visualWrap {
-      top: 27vh;
+      top: 28vh;
     }
     .visualTitle {
       font-size: 70px;
@@ -423,7 +423,7 @@
     .swiper-rtl .swiper-button-next,
     .swiper-button-next,
     .swiper-rtl .swiper-button-prev {
-      top: 35vh;
+      top: 320px;
       width: 50px;
       height: 50px;
     }
@@ -448,27 +448,33 @@
   /* visual */
   #visual {
     .visualWrap {
+      top: 30vh;
       left: 60px;
+      padding-right: 60px;
     }
     .visualTitle {
-      em {
-      }
-      span {
-      }
+      font-size: 50px;
     }
     .visualSubTitle {
+      margin-top: 30px;
+      padding: 0 40px;
+      font-size: 30px;
       &::after {
+        top: -14px;
+        font-size: 50px;
       }
       &::before {
+        top: -14px;
+        font-size: 50px;
       }
     }
     .visualTxt {
-    }
-    .visualBtn {
+      font-size: 17px;
     }
 
     /*swiper pagination*/
     .swiper-pagination {
+      padding-right: 160px;
     }
     .swiper-button-prev,
     .swiper-rtl .swiper-button-next,
@@ -476,31 +482,19 @@
     .swiper-rtl .swiper-button-prev {
       top: auto;
       bottom: 10vh;
-      &::after {
-      }
+      right: 60px;
     }
 
     .swiper-button-prev,
     .swiper-rtl .swiper-button-next {
+      right: 130px;
     }
 
-    .swiper-pagination-bullet {
-      &::after {
-      }
-      &:last-child {
-        &.swiper-pagination-bullet-active {
-        }
-      }
-    }
-    .swiper-pagination-bullet-active {
-      &::after {
-      }
-    }
     .pageNavi {
-      .current {
-      }
-      .total {
-      }
+      right: 60px;
+    }
+    .auto {
+      right: 60px;
     }
     .scorll {
       display: none;
@@ -512,22 +506,36 @@
   /* visual */
   #visual {
     .visualWrap {
-      left: 30px;
-      top: 27vh;
+      padding-right: 0;
+      width: calc(100vw - 60px);
+      @include center();
+      text-align: center;
     }
     .visualTitle {
+      position: relative;
+      padding: 0 0 30px;
       text-align: center;
       font-size: 40px;
-      em {
+      &::after {
+        @include cont_poa();
+        bottom: 0;
+        left: 50%;
+        width: 50px;
+        height: 5px;
+        margin-left: -27px;
+        background-color: $mainColor;
       }
       span {
+        margin-left: 5px;
       }
     }
     .visualSubTitle {
+      margin-top: 40px;
       padding: 0;
       display: block;
       text-align: center;
       font-size: 25px;
+
       span {
         display: block;
         margin: 10px 0;
@@ -540,10 +548,12 @@
       }
     }
     .visualTxt {
-      text-align: center;
-      font-size: 16px;
+      display: none;
     }
     .visualBtn {
+      display: inline-block;
+      margin-top: 40px;
+      font-size: 16px;
     }
 
     /*swiper pagination*/
@@ -555,32 +565,24 @@
     .swiper-rtl .swiper-button-next,
     .swiper-button-next,
     .swiper-rtl .swiper-button-prev {
-      top: 35vh;
-      &::after {
-      }
+      right: 30px;
+      bottom: 55px;
+      width: 45px;
+      height: 45px;
     }
 
     .swiper-button-prev,
     .swiper-rtl .swiper-button-next {
-    }
-
-    .swiper-pagination-bullet {
-      &::after {
-      }
-      &:last-child {
-        &.swiper-pagination-bullet-active {
-        }
-      }
-    }
-    .swiper-pagination-bullet-active {
-      &::after {
-      }
+      right: 90px;
     }
     .pageNavi {
-      .current {
-      }
-      .total {
-      }
+      display: none;
+    }
+    .auto {
+      right: auto;
+      top: auto;
+      left: 10px;
+      bottom: 65px;
     }
   }
 }
@@ -1735,12 +1737,13 @@ $svgColor2: $mainColor;
   font-style: normal;
   color: #777;
   margin-bottom: 20px;
-  border-top: 1px solid #555;
+  border-top: 1px solid #333;
   padding-top: 20px;
   margin-top: 20px;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   letter-spacing: 0;
+  line-height: 1.8;
 }
 #footer .inner p {
   font-family: "Roboto", sans-serif;
