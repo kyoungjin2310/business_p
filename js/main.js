@@ -95,7 +95,7 @@ const news = new Swiper("#news .mySwiper", {
       slidesPerView: 1,
       spaceBetween: 0,
     },
-    640: {
+    700: {
       slidesPerView: 2,
       spaceBetween: 40,
     },
@@ -149,7 +149,7 @@ const history = new Swiper("#history .mySwiper", {
         slideShadows: false,
       },
     },
-    540: {
+    800: {
       slidesPerView: 2,
       spaceBetween: 30,
       coverflowEffect: {
@@ -205,7 +205,7 @@ const pr = new Swiper("#pr .mySwiper", {
       slidesPerView: 1,
       spaceBetween: 0,
     },
-    640: {
+    750: {
       slidesPerView: 2,
       spaceBetween: 20,
     },
