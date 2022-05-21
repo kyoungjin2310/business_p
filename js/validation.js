@@ -1,9 +1,17 @@
-const form = document.querySelector("form");
+//
+const form = document.querySelector("#signUp");
 const btnSubmit = form.querySelector("input[type=submit]");
 
 btnSubmit.addEventListener("click", (e) => {
-  if (!isTxt("userid", 5) && !isEmail("email", 5) && !isPwd("pwd1", "pwd2", 5))
+  if (
+    !isTxt("userid", 5) &&
+    !isEmail("email", 5) &&
+    !isPwd("pwd1", "pwd2", 5) &&
+    !isCheck("gender") &&
+    !isSelect("country")
+  ) {
     e.preventDefault();
+  }
 });
 
 // text
@@ -11,7 +19,7 @@ function isTxt(name, len) {
   let input = form.querySelector(`[name=${name}]`);
   let txt = input.value;
 
-  if (txt.length >= len) {
+  if (txt.length == 0 && txt.length >= len) {
     const errMsgs = input.closest("td").querySelectorAll("p");
     if (errMsgs.length > 0) input.closest("td").querySelector("p").remove();
 
@@ -21,7 +29,7 @@ function isTxt(name, len) {
     if (errMsgs.length > 0) input.closest("td").querySelector("p").remove();
 
     const errMsg = document.createElement("p");
-    errMsg.append(`입력항목을 ${len}글자 이상 입력하세요`);
+    errMsg.append(`${len} characters minimum.`);
     input.closest("td").append(errMsg);
 
     return false;
@@ -44,7 +52,7 @@ function isEmail(name, len) {
 
     const errMsg = document.createElement("p");
     errMsg.append(
-      `이메일 주소를 ${len}글자 이상 '@'를 포함하여 입력해 주세요.`
+      `Your email address will become your Aléatoire id, which you’ll use to log into Aléatoire.`
     );
     input.closest("td").append(errMsg);
 
@@ -68,8 +76,34 @@ function isSelect(name) {
     if (errMsgs.length > 0) sel.closest("td").querySelector("p").remove();
 
     const errMsg = document.createElement("p");
-    errMsg.append("항목을 선택해 주세요.");
+    errMsg.append("Please select an country.");
     sel.closest("td").append(errMsg);
+    return false;
+  }
+}
+
+// check
+function isCheck(name) {
+  let inputs = form.querySelectorAll(`[name=${name}]`);
+  let isChecked = false;
+
+  for (let el of inputs) {
+    if (el.checked) isChecked = true;
+  }
+
+  if (isChecked) {
+    const errMsgs = inputs[0].closest("td").querySelectorAll("p");
+    if (errMsgs.length > 0) inputs[0].closest("td").querySelector("p").remove();
+
+    return true;
+  } else {
+    const errMsgs = inputs[0].closest("td").querySelectorAll("p");
+    if (errMsgs.length > 0) inputs[0].closest("td").querySelector("p").remove();
+
+    const errMsg = document.createElement("p");
+    errMsg.append("Please check the required fields.");
+    inputs[0].closest("td").append(errMsg);
+
     return false;
   }
 }
@@ -102,7 +136,7 @@ function isPwd(name1, name2, len) {
     if (errMsgs.length > 0) pwd1.closest("td").querySelector("p").remove();
     const errMsg = document.createElement("p");
     errMsg.append(
-      `비밀번호는 ${len}글자 이상, 숫자를 포함해서 동일하게 입력하세요`
+      `Password must contain at least one number, special character and ${len} characters minimum.`
     );
     pwd1.closest("td").append(errMsg);
 
