@@ -3,13 +3,12 @@ const form = document.querySelector("#signUp");
 const btnSubmit = form.querySelector("input[type=submit]");
 
 btnSubmit.addEventListener("click", (e) => {
-  if (
-    !isTxt("userid", 5) &&
-    !isEmail("email", 5) &&
-    !isPwd("pwd1", "pwd2", 5) &&
-    !isCheck("gender") &&
-    !isSelect("country")
-  ) {
+  if (!isTxt("userid", 5)) e.preventDefault();
+  if (!isEmail("email", 5)) e.preventDefault();
+  if (!isPwd("pwd1", "pwd2", 5)) e.preventDefault();
+  if (!isCheck("gender")) e.preventDefault();
+  if (!isSelect("country")) e.preventDefault();
+  {
     e.preventDefault();
   }
 });
