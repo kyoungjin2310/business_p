@@ -4,6 +4,7 @@
 @import "commons";
 
 $mainMobile: 700px;
+$easing: ease;
 
 /*swiper commons*/
 .swiper {
@@ -11,7 +12,7 @@ $mainMobile: 700px;
   height: 100%;
   position: relative;
   .swiper-wrapper {
-    transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+    transition-timing-function: $easing;
   }
 }
 
@@ -74,6 +75,7 @@ $mainMobile: 700px;
           width: 0;
           height: 2px;
           background-color: #fff;
+          transition: 0.5s $easing;
         }
         &:hover {
           &::after {
@@ -99,7 +101,7 @@ $mainMobile: 700px;
         box-sizing: border-box;
         line-height: 16px;
         border-radius: 5px;
-        transition: 0.25s ease;
+        transition: 0.25s $easing;
         &:hover {
           background: $mainColor;
           border-color: $mainColor;
@@ -202,7 +204,7 @@ $mainMobile: 700px;
               $fw: 800
             );
             line-height: 1em;
-            transition: 0.25s ease;
+            transition: 0.25s $easing;
             &:hover {
               color: $mainColor;
             }
@@ -302,6 +304,29 @@ $mainMobile: 700px;
   }
 }
 
+//visual transition
+$visualTxtDelay: 1s;
+
+@mixin visualTransition(
+  $delay: $visualTxtDelay,
+  $easing: $easing,
+  $duration: 1.2s
+) {
+  overflow: hidden;
+  > .children {
+    display: block;
+    transform: translate(0, 100%);
+    transition: transform $duration $easing;
+    transition-delay: $delay;
+  }
+}
+
+@mixin visualTransitionActive($translate: translate(0, 0)) {
+  .children {
+    transform: $translate;
+  }
+}
+
 /* visual */
 #visual {
   position: relative;
@@ -314,23 +339,28 @@ $mainMobile: 700px;
     left: 100px;
     z-index: 1;
   }
-  img {
+  .img {
     position: absolute;
     top: 0;
     left: 0;
-    vertical-align: middle;
+    transform: scale(2);
+    transition: transform 4s $easing;
+    img {
+      vertical-align: top;
+    }
   }
   .swiper-slide {
     img {
       filter: brightness(0.7);
     }
   }
-  .box1 {
+  .first {
     img {
       filter: brightness(1);
     }
   }
   .visualTitle {
+    @include visualTransition();
     @include title2($ta: left, $fz: 90px, $color: #fff);
     em {
       line-height: 1;
@@ -342,34 +372,38 @@ $mainMobile: 700px;
   }
   .visualSubTitle {
     position: relative;
-    margin-top: 40px;
+    margin-top: 20px;
     line-height: 1;
-    padding: 0 60px;
     display: inline-block;
     @include title2($ta: left, $fz: 60px, $color: #fff);
+    @include visualTransition($delay: 1.3s);
     span {
       color: $mainColor2;
     }
-    &::after {
-      content: "[";
-      display: block;
-      position: absolute;
-      top: -25px;
-      left: 0;
-      @include title2($ta: left, $fz: 100px, $color: $mainColor2, $fw: 600);
-    }
-    &::before {
-      content: "]";
-      display: block;
-      position: absolute;
-      top: -25px;
-      right: 0;
-      @include title2($ta: left, $fz: 100px, $color: $mainColor2, $fw: 600);
+    .children {
+      position: relative;
+      padding: 20px 60px;
+      &::after {
+        content: "[";
+        display: block;
+        position: absolute;
+        top: -5px;
+        left: 0;
+        @include title2($ta: left, $fz: 100px, $color: $mainColor2, $fw: 600);
+      }
+      &::before {
+        content: "]";
+        display: block;
+        position: absolute;
+        top: -5px;
+        right: 0;
+        @include title2($ta: left, $fz: 100px, $color: $mainColor2, $fw: 600);
+      }
     }
   }
   .visualTxt {
     max-width: $mainMobile;
-    margin-top: 60px;
+    margin-top: 40px;
     @include title2(
       $ta: left,
       $fz: 18px,
@@ -378,12 +412,17 @@ $mainMobile: 700px;
       $ff: $fontStyle
     );
     line-height: 1.8;
+    overflow: hidden;
+    @include visualTransition($delay: 1.5s);
   }
   .visualBtn {
     margin-top: 60px;
     display: inline-block;
-    padding: 15px 50px;
-    background-color: $mainColor;
+    .children {
+      padding: 15px 50px;
+      background-color: $mainColor;
+    }
+    @include visualTransition($delay: 2s);
     @include title2($fz: 20px, $color: #fff);
     &:hover {
       background-color: #fff;
@@ -413,6 +452,7 @@ $mainMobile: 700px;
     border: 1px solid rgba(255, 255, 255, 0.7);
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 50%;
+    transition: 0.25s $easing;
     &::after {
       transform: scale(0.5);
     }
@@ -437,7 +477,7 @@ $mainMobile: 700px;
     width: auto;
     height: auto;
     opacity: 1;
-    // transition: margin 0.5s ease;
+    transition: margin 1s $easing;
     &::after {
       @include cont_poa();
       bottom: 2px;
@@ -445,7 +485,7 @@ $mainMobile: 700px;
       width: 0;
       height: 2px;
       background-color: rgba(255, 255, 255, 0.5);
-      // transition: width 0.5s ease;
+      transition: width 1s $easing;
     }
     &:last-child {
       margin-right: 0;
@@ -503,6 +543,25 @@ $mainMobile: 700px;
       font-size: 20px;
     }
   }
+
+  //active
+  .swiper-slide-active {
+    .visualTitle {
+      @include visualTransitionActive();
+    }
+    .visualSubTitle {
+      @include visualTransitionActive();
+    }
+    .visualTxt {
+      @include visualTransitionActive();
+    }
+    .visualBtn {
+      @include visualTransitionActive();
+    }
+    .img {
+      transform: scale(1);
+    }
+  }
 }
 
 @media screen and (max-width: 1490px) {
@@ -529,8 +588,10 @@ $mainMobile: 700px;
       }
     }
     .visualBtn {
-      padding: 10px 35px;
       font-size: 18px;
+      .children {
+        padding: 10px 35px;
+      }
     }
 
     /*swiper pagination*/
@@ -571,20 +632,22 @@ $mainMobile: 700px;
       font-size: 60px;
     }
     .visualSubTitle {
-      margin-top: 30px;
-      padding: 0 40px;
+      margin-top: 20px;
       font-size: 32px;
-      &::after {
-        top: -12px;
-        font-size: 50px;
-      }
-      &::before {
-        top: -12px;
-        font-size: 50px;
+      .children {
+        padding: 10px 40px;
+        &::after {
+          top: -2px;
+          font-size: 50px;
+        }
+        &::before {
+          top: -2px;
+          font-size: 50px;
+        }
       }
     }
     .visualTxt {
-      margin-top: 40px;
+      margin-top: 30px;
       font-size: 17px;
       height: 60px;
       overflow: hidden;
@@ -633,18 +696,22 @@ $mainMobile: 700px;
     }
     .visualTitle {
       position: relative;
-      padding: 0 0 30px;
       text-align: center;
       font-size: 40px;
-      &::after {
-        @include cont_poa();
-        bottom: 0;
-        left: 50%;
-        width: 50px;
-        height: 5px;
-        margin-left: -27px;
-        background-color: $mainColor;
+      .children {
+        position: relative;
+        padding: 0 0 30px;
+        &::after {
+          @include cont_poa();
+          bottom: 0;
+          left: 50%;
+          width: 50px;
+          height: 5px;
+          margin-left: -27px;
+          background-color: $mainColor;
+        }
       }
+
       span {
         margin-left: 5px;
       }
@@ -656,15 +723,17 @@ $mainMobile: 700px;
       text-align: center;
       font-size: 25px;
 
+      .children {
+        &::after {
+          display: none;
+        }
+        &::before {
+          display: none;
+        }
+      }
       span {
         display: block;
         margin: 10px 0;
-      }
-      &::after {
-        display: none;
-      }
-      &::before {
-        display: none;
       }
     }
     .visualTxt {
@@ -747,6 +816,7 @@ section {
     background-color: $mainColor;
     border: 1px solid $mainColor;
     @include title2($fz: 17px, $color: #fff);
+    transition: 0.25s ease;
     &:hover {
       background-color: #fff;
       color: $mainColor;
@@ -811,6 +881,9 @@ section {
     position: relative;
     margin-top: -160px;
     padding-left: 100px;
+    &.ani-content {
+      transition: none;
+    }
   }
   .newsSvg {
     position: absolute;
@@ -903,6 +976,10 @@ section {
     margin-top: 25px;
     display: inline-block;
     @include title2($ta: left, $fz: 16px, $color: #222);
+    transition: 0.25s $easing;
+    .fas {
+      transition: 0.25s $easing;
+    }
     &:hover {
       color: $mainColor;
       .fas {
@@ -926,6 +1003,7 @@ section {
       font-size: 10px;
       background-color: #222;
       border-radius: 50%;
+      transition: 0.25s $easing;
       &::after {
         transform: scale(0.5);
       }
@@ -965,8 +1043,11 @@ section {
       padding-left: 60px;
     }
     .contMainTitle {
-      margin-left: 60px;
+      margin-left: 0;
+      margin-right: 0;
       margin-top: 120px;
+      text-align: center;
+      width: 100%;
     }
     .inner {
       padding-left: 60px;
@@ -1059,6 +1140,26 @@ section {
   }
 }
 
+//history transition
+$historyTxtDelay: 0s;
+
+@mixin historyTransition(
+  $delay: $historyTxtDelay,
+  $easing: $easing,
+  $duration: 0.7s,
+  $x: -30px
+) {
+  opacity: 0;
+  transform: translateX($x);
+  transition: all $duration $easing;
+  transition-delay: $delay;
+}
+
+@mixin historyTransitionActive($translate: translateX(0)) {
+  opacity: 1;
+  transform: $translate;
+}
+
 /* history */
 #history {
   width: 100%;
@@ -1115,6 +1216,7 @@ section {
         height: 5px;
         background-color: #fff;
       }
+      @include historyTransition($delay: 0.1s);
     }
     h3 {
       position: relative;
@@ -1147,11 +1249,13 @@ section {
         margin-left: 10px;
         margin-right: 10px;
       }
+      @include historyTransition($delay: 0.2s);
     }
     p {
       opacity: 0.7;
       height: 120px;
       overflow: hidden;
+      @include historyTransition($delay: 0.3s);
     }
     a {
       display: inline-block;
@@ -1159,10 +1263,26 @@ section {
       padding: 8px 35px;
       border: 1px solid rgba(255, 255, 255, 0.5);
       background-color: rgba(255, 255, 255, 0.1);
+      transition: 0.25s $easing;
       @include title2($ta: left, $fz: 16px, $color: #fff);
+      @include historyTransition($delay: 0.4s);
       &:hover {
         background-color: #fff;
         color: $mainColor;
+      }
+    }
+    &.active {
+      h2 {
+        @include historyTransitionActive();
+      }
+      h3 {
+        @include historyTransitionActive();
+      }
+      p {
+        @include historyTransitionActive();
+      }
+      a {
+        @include historyTransitionActive();
       }
     }
   }
@@ -1191,6 +1311,7 @@ section {
       font-size: 10px;
       background-color: #eaebed;
       border-radius: 50%;
+      transition: 0.25s $easing;
       &::after {
         transform: scale(0.6);
         color: #222;
@@ -1379,6 +1500,7 @@ section {
       font-size: 10px;
       background-color: #eaebed;
       border-radius: 50%;
+      transition: 0.25s $easing;
       &::after {
         transform: scale(0.6);
         color: #222;
@@ -2389,6 +2511,55 @@ $svgColor2: $mainColor;
             margin-left: 0;
           }
         }
+      }
+    }
+  }
+}
+//common transition
+$commonDelay: 0;
+
+@mixin commonTransition($easing: $easing, $duration: 0.5s, $transform: 2vh) {
+  opacity: 0;
+  transform: translateY($transform);
+  transition: transform $duration $easing, opacity $duration $easing,
+    background-color $duration $easing, color $duration $easing;
+}
+
+@for $i from 1 through 13 {
+  .ani-content:nth-child(#{$i}) {
+    @include commonTransition();
+    &.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@for $i from 1 through 13 {
+  .ani-content {
+    .box#{$i} {
+      @include commonTransition($transform: 60px);
+      transition-delay: ($i * 0.25s);
+    }
+    &.active {
+      .box#{$i} {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+}
+
+@for $i from 1 through 13 {
+  .ani-content {
+    .list#{$i} {
+      @include commonTransition($transform: 60px);
+      transition-delay: ($i * 0.25) + 1.2s;
+    }
+    &.active {
+      .list#{$i} {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
   }

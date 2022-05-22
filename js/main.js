@@ -4,6 +4,14 @@ const total = document.querySelector(".total");
 const current = document.querySelector(".current");
 const slide = document.querySelectorAll("#visual .swiper-slide");
 const active = document.querySelectorAll("#visual .swiper-pagination-bullet");
+const cont_active = document.querySelectorAll("section");
+const cont_active_arr = Array.from(cont_active);
+const cont_activeLen = cont_active.length;
+let posArr = null;
+let enableClick = true;
+let base = -400;
+
+console.log(cont_active);
 
 //header
 btnCall.onclick = (e) => {
@@ -20,6 +28,7 @@ const visual = new Swiper("#visual .mySwiper", {
   direction: "horizontal",
   slidesPerView: "auto",
   spaceBetween: 0,
+  effect: "fade",
   centeredSlides: false,
   loop: true,
   keyboard: true,
@@ -37,7 +46,7 @@ const visual = new Swiper("#visual .mySwiper", {
     },
   },
   autoplay: {
-    delay: 2500,
+    delay: 4000,
     disableOnInteraction: true,
   },
   speed: 1000,
@@ -47,8 +56,6 @@ const visual = new Swiper("#visual .mySwiper", {
     },
   },
 });
-
-visual.autoplay.stop();
 
 const visualBtnStart = document.querySelector("#visual .btnStart");
 const visualBtnStop = document.querySelector("#visual .btnStop");
@@ -111,9 +118,8 @@ const news = new Swiper("#news .mySwiper", {
 });
 
 //history
-
 //swiper
-const history = new Swiper("#history .mySwiper", {
+const historySwiper = new Swiper("#history .mySwiper", {
   effect: "coverflow",
   coverflowEffect: {
     rotate: 50,
@@ -136,6 +142,64 @@ const history = new Swiper("#history .mySwiper", {
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
+  },
+  on: {
+    activeIndexChange: function () {
+      //swiper
+      const i = this.realIndex + 2;
+
+      //target
+      const historySetYear = document.querySelector(".setDate .year");
+      const historySetMmdd = document.querySelector(".setDate .mmdd");
+      const historySetkeyword = document.querySelector(".setTitle .keyword1");
+      const historySetkeyword_ = document.querySelector(".setTitle .keyword2");
+      const historySetTxt = document.querySelector(".setTxt");
+      const hToggleClass = document.querySelector(".historyActive");
+      //history txt
+      const historyGetKeyword = document.querySelectorAll(
+        ".getTitle .keyword1"
+      );
+      const historyGetKeyword_ = document.querySelectorAll(
+        ".getTitle .keyword2"
+      );
+      const historyGetTxt = document.querySelectorAll(".getTxt");
+      let hKeywordArr = [];
+      let hKeywordArr_ = [];
+      let hTxtArr = [];
+      getTxt(historyGetKeyword, hKeywordArr);
+      getTxt(historyGetKeyword_, hKeywordArr_);
+      getTxt(historyGetTxt, hTxtArr);
+      function getTxt(element, arr) {
+        for (let el of element) {
+          const txt = el.innerText;
+          arr.push(txt);
+        }
+      }
+
+      //img date
+      const img = document.querySelectorAll("#history img");
+      let imgArrYear = [];
+      let imgArrMmdd = [];
+      for (let el of img) {
+        const imgAttr = el.getAttribute("alt");
+        let imgYear = imgAttr.substring(0, 4);
+        let imgMmdd = imgAttr.substring(5, 10);
+        imgArrYear.push(imgYear);
+        imgArrMmdd.push(imgMmdd);
+      }
+
+      setTimeout(() => {
+        hToggleClass.classList.remove("active");
+        setTimeout(() => {
+          historySetYear.innerText = imgArrYear[i];
+          historySetMmdd.innerText = imgArrMmdd[i];
+          historySetkeyword.innerText = hKeywordArr[i];
+          historySetkeyword_.innerText = hKeywordArr_[i];
+          historySetTxt.innerText = hTxtArr[i];
+          hToggleClass.classList.add("active");
+        }, 1000);
+      }, 0);
+    },
   },
   breakpoints: {
     0: {
@@ -174,11 +238,6 @@ const history = new Swiper("#history .mySwiper", {
   },
 });
 
-//텍스트 변경
-const historySetTitle = document.querySelector(".setTitle");
-const historySetDate = document.querySelector(".setDate");
-const historyGetDate = document.querySelector(".getDate");
-
 //pr
 const pr = new Swiper("#pr .mySwiper", {
   effect: "coverflow",
@@ -214,6 +273,29 @@ const pr = new Swiper("#pr .mySwiper", {
       spaceBetween: 30,
     },
   },
+});
+
+// .ani-content active add class
+function setPos() {
+  posArr = [];
+  for (let el of cont_active) {
+    posArr.push(el.offsetTop);
+    console.log(el.offsetTop);
+  }
+}
+setPos();
+
+function activation() {
+  let scroll = window.scrollY || window.pageYOffset;
+  cont_active_arr.forEach((el, index) => {
+    if (scroll >= posArr[index] + base) {
+      cont_active_arr[index].classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", (e) => {
+  activation();
 });
 
 window.onload = () => {
