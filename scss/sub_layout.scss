@@ -532,3 +532,54 @@
     }
   }
 }
+
+//common transition
+$commonDelay: 0;
+$easing: ease;
+
+@mixin commonTransition($easing: $easing, $duration: 0.5s, $transform: 2vh) {
+  opacity: 0;
+  transform: translateY($transform);
+  transition: transform $duration $easing, opacity $duration $easing,
+    background-color $duration $easing, color $duration $easing;
+}
+
+@for $i from 1 through 13 {
+  .ani-content:nth-child(#{$i}) {
+    @include commonTransition();
+    &.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@for $i from 1 through 13 {
+  .ani-content {
+    .box#{$i} {
+      @include commonTransition($transform: 60px);
+      transition-delay: ($i * 0.25s);
+    }
+    &.active {
+      .box#{$i} {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+}
+
+@for $i from 1 through 13 {
+  .ani-content {
+    .list#{$i} {
+      @include commonTransition($transform: 60px);
+      transition-delay: ($i * 0.25) + 1.2s;
+    }
+    &.active {
+      .list#{$i} {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+}

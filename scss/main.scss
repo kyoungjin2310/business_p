@@ -1043,11 +1043,8 @@ section {
       padding-left: 60px;
     }
     .contMainTitle {
-      margin-left: 0;
-      margin-right: 0;
       margin-top: 120px;
-      text-align: center;
-      width: 100%;
+      margin-left: 60px;
     }
     .inner {
       padding-left: 60px;
@@ -1093,6 +1090,10 @@ section {
       text-align: center;
     }
     .contMainTitle {
+      margin-left: 0;
+      margin-right: 0;
+      text-align: center;
+      width: 100%;
       &::after {
         top: -50px;
         left: 50%;

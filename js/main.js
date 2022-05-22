@@ -9,7 +9,7 @@ const cont_active_arr = Array.from(cont_active);
 const cont_activeLen = cont_active.length;
 let posArr = null;
 let enableClick = true;
-let base = -400;
+let base = -500;
 
 console.log(cont_active);
 
