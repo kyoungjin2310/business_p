@@ -17,10 +17,10 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/sub_layout.css" />
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
     <script src="js/menu.js" defer></script>
     <script src="js/sub_common.js" defer></script>
-    <script src="js/practice.js" defer></script>
-    <script src="js/anime.js" defer></script>
+    <script src="js/gallery.js" defer></script>
   </head>
   <body>
     <header id="headerSub">
@@ -72,31 +72,37 @@
       </div>
       <div class="subTab" id="subTab">
         <ul>
-          <li class="on"><a href="gallery.html">gallery</a></li>
+          <li class="on"><a href="gallery.html">Gallery</a></li>
           <li><a href="video.html">Video</a></li>
         </ul>
       </div>
       <!--컨텐츠 들어가는 부분 -->
       <div class="contentWrap">
         <article>
-          <h2 class="ani-order">Publicity gallery</h2>
-          <div class="ani-order">
-            <div id="wrap">
-              <p class="proTitle">Please select a photo.</p>
-              <p class="imgWrap on">
-                <img src="img/practice/s1.jpg" alt="practice1" />
-              </p>
-              <div>
-                <div id="banner">
-                  <ul class="list"></ul>
-                  <a href="#" class="prev">
-                    <i class="fa-solid fa-angle-left"></i>
-                  </a>
-                  <a href="#" class="next">
-                    <i class="fa-solid fas fa-angle-right"></i>
-                  </a>
-                </div>
-              </div>
+          <h2 class="ani-order">Publicity Gallery</h2>
+          <div class="inner ani-order">
+            <div id="gallery">
+              <article id="searchBox">
+                <input
+                  type="text"
+                  placeholder="Please enter your search term."
+                  id="search"
+                />
+                <button class="btnSearch">Search</button>
+              </article>
+              <article>
+                <img src="img/loading.gif" class="loading" />
+                <ul id="list">
+                  <!-- <li>
+                            <div>
+                                <a href="큰이미지주소">
+                                    <img src="썸네일이미지주소" alt="">
+                                </a>
+                                <p>이미지제목</p>
+                            </div>
+                        </li> -->
+                </ul>
+              </article>
             </div>
           </div>
         </article>

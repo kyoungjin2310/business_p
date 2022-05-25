@@ -3,7 +3,7 @@ const cont_active_arr = Array.from(cont_active);
 const cont_activeLen = cont_active.length;
 let posArr = null;
 let enableClick = true;
-let base = -700;
+let cont_base = -700;
 
 // .ani-content active add class
 function setPos() {
@@ -17,7 +17,7 @@ setPos();
 function activation() {
   let scroll = window.scrollY || window.pageYOffset;
   cont_active_arr.forEach((el, index) => {
-    if (scroll >= posArr[index] + base) {
+    if (scroll >= posArr[index] + cont_base) {
       cont_active_arr[index].classList.add("active");
     }
   });
