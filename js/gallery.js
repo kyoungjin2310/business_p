@@ -42,7 +42,6 @@ btnSearch.addEventListener("click", (e) => {
 input.addEventListener("keyup", (e) => {
   if (e.key === "Enter") {
     let tag = input.value.trim();
-    console.log(tag);
 
     //search
     if (tag) {

@@ -8,9 +8,6 @@ btnSubmit.addEventListener("click", (e) => {
   if (!isPwd("pwd1", "pwd2", 5)) e.preventDefault();
   if (!isCheck("gender")) e.preventDefault();
   if (!isSelect("country")) e.preventDefault();
-  {
-    e.preventDefault();
-  }
 });
 
 // text
@@ -18,7 +15,7 @@ function isTxt(name, len) {
   let input = form.querySelector(`[name=${name}]`);
   let txt = input.value;
 
-  if (txt.length == 0 && txt.length >= len) {
+  if (txt.length >= len) {
     const errMsgs = input.closest("td").querySelectorAll("p");
     if (errMsgs.length > 0) input.closest("td").querySelector("p").remove();
 

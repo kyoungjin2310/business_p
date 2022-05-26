@@ -14,22 +14,17 @@ const popup = document.querySelector("#popup");
 const btnClose = popup.querySelector(".close");
 const popupDel = document.querySelector(".del");
 const btnView = document.querySelector(".view");
+
 const isCookie = document.cookie.indexOf("today=done");
 console.log(isCookie);
 
 if (isCookie == -1) {
-  console.log("쿠키없음");
   popup.style.display = "block";
 } else {
-  console.log("쿠키있음");
   popup.style.display = "none";
 }
 
-btnView.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  console.log(document.cookie);
-});
+console.log(document.cookie);
 
 btnClose.addEventListener("click", (e) => {
   e.preventDefault();
@@ -39,15 +34,12 @@ btnClose.addEventListener("click", (e) => {
   popup.style.display = "none";
 });
 
-function setCookie(cookieName, cookieValue, time) {
-  const today = new Date();
-  const date = today.getDate();
-  const duedate = today.toGMTString();
-
-  today.setDate(date + time);
-  document.cookie = `${cookieName}=${cookieValue}; path="/"; expires=${duedate}`;
+function setCookie(cname, cvalue, days) {
+  let d = new Date();
+  d.setDate(d.getDate() + days);
+  let expires = "expires=" + d.toGMTString();
+  document.cookie = `${cname}=${cvalue}; path="/"; expires=${expires}`;
 }
-
 //header
 // visual
 total.innerText = slide.length;
@@ -308,7 +300,6 @@ function setPos() {
   posArr = [];
   for (let el of cont_active) {
     posArr.push(el.offsetTop);
-    console.log(el.offsetTop);
   }
 }
 setPos();
