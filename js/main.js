@@ -1,5 +1,3 @@
-const btnCall = document.querySelector(".btnCall");
-const menuMo = document.querySelector(".menuMo");
 const total = document.querySelector(".total");
 const current = document.querySelector(".current");
 const slide = document.querySelectorAll("#visual .swiper-slide");
@@ -11,16 +9,46 @@ let posArr = null;
 let enableClick = true;
 let base = -500;
 
-console.log(cont_active);
+/*cookie*/
+const popup = document.querySelector("#popup");
+const btnClose = popup.querySelector(".close");
+const popupDel = document.querySelector(".del");
+const btnView = document.querySelector(".view");
+const isCookie = document.cookie.indexOf("today=done");
+console.log(isCookie);
 
-//header
-btnCall.onclick = (e) => {
+if (isCookie == -1) {
+  console.log("쿠키없음");
+  popup.style.display = "block";
+} else {
+  console.log("쿠키있음");
+  popup.style.display = "none";
+}
+
+btnView.addEventListener("click", (e) => {
   e.preventDefault();
 
-  btnCall.classList.toggle("on");
-  menuMo.classList.toggle("on");
-};
+  console.log(document.cookie);
+});
 
+btnClose.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  let isChecked = popup.querySelector("input[type=checkbox]").checked;
+  if (isChecked) setCookie("today", "done", 1);
+  popup.style.display = "none";
+});
+
+function setCookie(cookieName, cookieValue, time) {
+  const today = new Date();
+  const date = today.getDate();
+  const duedate = today.toGMTString();
+
+  today.setDate(date + time);
+  document.cookie = `${cookieName}=${cookieValue}; path="/"; expires=${duedate}`;
+}
+
+//header
 // visual
 total.innerText = slide.length;
 

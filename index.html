@@ -28,18 +28,60 @@
       href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
     />
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-
+    <script src="js/menu.js" defer></script>
     <script src="js/main.js" defer></script>
   </head>
   <body>
+    <ul id="skipNavi">
+      <li><a href="#gnb">skip to main menu</a></li>
+      <li><a href="#visual">skip to main content</a></li>
+      <li><a href="#footer">skip to main </a></li>
+    </ul>
+    <aside id="popup">
+      <div class="content">
+        <h1>This site is for portfolio.</h1>
+        <p>
+          Welcome! Thank you for visiting this site.<br />But, Please do not
+          message us as this site is not operated.
+        </p>
+      </div>
+      <div class="wrap">
+        <input type="checkbox" id="ck" />
+        <label for="ck">close for 24 hours</label>
+      </div>
+      <a href="#" class="close">close</a>
+    </aside>
     <header id="header">
       <div class="inner">
         <h1><a href="index.html">Aléatoire</a></h1>
         <nav class="menuWeb">
           <ul id="gnb">
-            <li><a href="about.html">About</a></li>
+            <li>
+              <a href="about.html">About</a>
+              <ul class="depth2">
+                <li>
+                  <a href="about.html">About Us</a>
+                </li>
+                <li>
+                  <a href="orgChart.html">Org Chart</a>
+                </li>
+                <li>
+                  <a href="history.html">History</a>
+                </li>
+              </ul>
+            </li>
             <li><a href="news.html">News</a></li>
-            <li><a href="gallery.html">PR</a></li>
+            <li>
+              <a href="gallery.html">PR</a>
+              <ul class="depth2">
+                <li>
+                  <a href="gallery.html">Gallery</a>
+                </li>
+                <li>
+                  <a href="video.html">Video</a>
+                </li>
+              </ul>
+            </li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
           <ul class="util">
