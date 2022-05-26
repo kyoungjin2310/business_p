@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.2, minimum-scale=0.8"
+    />
+    <title>News</title>
+    <script
+      src="https://kit.fontawesome.com/716084ccb4.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;700;900&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/sub_layout.css" />
+    <script src="js/menu.js" defer></script>
+    <script src="js/sub_common.js" defer></script>
+  </head>
+  <body>
+    <header id="headerSub">
+      <div class="inner">
+        <h1><a href="index.html">Aléatoire</a></h1>
+        <nav class="menuWeb">
+          <ul id="gnb">
+            <li>
+              <a href="about.html">About</a>
+              <ul class="depth2">
+                <li>
+                  <a href="about.html">About Us</a>
+                </li>
+                <li>
+                  <a href="orgChart.html">Org Chart</a>
+                </li>
+                <li>
+                  <a href="history.html">History</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="news.html">News</a></li>
+            <li>
+              <a href="gallery.html">PR</a>
+              <ul class="depth2">
+                <li>
+                  <a href="gallery.html">Gallery</a>
+                </li>
+                <li>
+                  <a href="video.html">Video</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <ul class="util">
+            <li><a href="signIn.html">Sign In</a></li>
+            <li><a href="signUp.html">Sign Up</a></li>
+          </ul>
+        </nav>
+        <a href="#" class="btnCall">
+          <span>Open or Close</span>
+        </a>
+        <nav class="menuMo">
+          <h1 class="ani-menu">
+            <a href="#">Aléatoire</a>
+          </h1>
+          <div class="util ani-menu">
+            <ul>
+              <li><a href="signIn.html">Sign In</a></li>
+              <li><a href="signUp.html">Sign Up</a></li>
+            </ul>
+          </div>
+          <ul id="gnbMo" class="ani-menu">
+            <li><a href="about.html">About</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="gallery.html">PR</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <section class="content">
+      <div class="visual">
+        <h1 class="ani-orderTitle"><span>News</span></h1>
+        <!--컨텐츠 들어가는 부분 -->
+        <div class="img">
+          <img
+            src="https://images.unsplash.com/photo-1645226880663-81561dcab0ae?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070"
+            alt="contact"
+          />
+        </div>
+      </div>
+      <div class="contentWrap">
+        <h2 class="ani-order">News</h2>
+        <div class="news ani-order">
+          <article id="searchBox">
+            <input
+              type="text"
+              placeholder="Please enter your search term."
+              id="search"
+            />
+            <button class="btnSearch">Search</button>
+          </article>
+          <article class="newsTable">
+            <div class="tableWrap">
+              <table>
+                <caption class="h">
+                  News
+                </caption>
+                <thead>
+                  <tr>
+                    <th class="num">No.</th>
+                    <th class="title">Title</th>
+                    <th class="date">Date</th>
+                    <th class="view">View</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="num">4</td>
+                    <td class="title">
+                      <a href="#">
+                        <strong>
+                          Build your hybrid multicloud environment with network
+                          services powered by 5G edge and SDN
+                        </strong>
+                        <span>
+                          Creating a successful network transformation for your
+                          enterprise requires thinking creatively about network
+                          solutions.
+                        </span>
+                      </a>
+                    </td>
+                    <td class="date">2022-03-05</td>
+                    <td class="view">7</td>
+                  </tr>
+                  <tr>
+                    <td class="num">3</td>
+                    <td class="title">
+                      <a href="#">
+                        <strong>
+                          Create new revenue sources through IoT-enabled
+                          connected operations
+                        </strong>
+                        <span>
+                          This report draws on input from 3,158 conversations
+                          with C-suite executives from July through September
+                          2017.
+                        </span>
+                      </a>
+                    </td>
+                    <td class="date">2022-02-28</td>
+                    <td class="view">15</td>
+                  </tr>
+                  <tr>
+                    <td class="num">2</td>
+                    <td class="title">
+                      <a href="#">
+                        <strong>
+                          Optimize asset performance and maintenance with
+                          digital twins
+                        </strong>
+                        <span>
+                          Even with all their benefits, connected assets can
+                          also complicate things: Organizations are struggling
+                          to glean valuable insights from all the data they’re
+                          consuming so they can continue resilient and
+                          uninterrupted operations.
+                        </span>
+                      </a>
+                    </td>
+                    <td class="date">2022-02-17</td>
+                    <td class="view">9</td>
+                  </tr>
+                  <tr>
+                    <td class="num">1</td>
+                    <td class="title">
+                      <a href="#">
+                        <strong>
+                          Enhance factory operations and supply chains with
+                          Industry 4.0
+                        </strong>
+                        <span>
+                          What’s an hour of shop-floor downtime worth? For
+                          almost nine in ten firms surveyed recently, it could
+                          be as much as USD 300,000.
+                        </span>
+                      </a>
+                    </td>
+                    <td class="date">2022-01-02</td>
+                    <td class="view">13</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="pagination">
+              <ul class="pageWrap">
+                <li class="pageBtn prev1">
+                  <a href="#">
+                    <span class="h">Prev2</span>
+                    <i class="fa-solid fa-angles-left"></i>
+                  </a>
+                </li>
+                <li class="pageBtn prev2">
+                  <a href="#">
+                    <span class="h">Prev</span>
+                    <i class="fa-solid fa-angle-left"></i>
+                  </a>
+                </li>
+                <li class="on">
+                  <a href="#">1</a>
+                </li>
+                <li>
+                  <a href="#">2</a>
+                </li>
+                <li>
+                  <a href="#">3</a>
+                </li>
+                <li>
+                  <a href="#">4</a>
+                </li>
+                <li>
+                  <a href="#">5</a>
+                </li>
+                <li class="pageBtn next1">
+                  <a href="#">
+                    <span class="h">Next</span>
+                    <i class="fa-solid fa-angle-right"></i>
+                  </a>
+                </li>
+                <li class="pageBtn next2">
+                  <a href="#">
+                    <span class="h">Next2</span>
+                    <i class="fa-solid fa-angles-right"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <footer id="footerSub">
+      <div class="inner">
+        <h1>Aléatoire</h1>
+        <ul>
+          <li><a href="#">Policy</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+        </ul>
+        <address>
+          Address : Aléatoire, 60, Sajik-ro 8-gil, Jongro-gu, Seoul, Republic of
+          Lorea(Post Code 03172) <br />
+          TEL: +82-2-2100-2114 FAX : +82-2-2100-7999
+        </address>
+
+        <p>Copyright &copy; 2022 Aléatoire ALL Right reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
