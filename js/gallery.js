@@ -72,24 +72,20 @@ input.addEventListener("keyup", (e) => {
 //create popup
 frame.addEventListener("click", (e) => {
   e.preventDefault();
+  console.log(e.target);
+  let imgSrc = e.target.getAttribute("href");
 
-  let target = e.target.parentElement.querySelector("img");
-
-  if (e.target == target) {
-    let imgSrc = target.parentElement.getAttribute("href");
-
-    let pop = document.createElement("aside");
-    pop.classList.add("pop");
-    let pops = `
+  let pop = document.createElement("aside");
+  pop.classList.add("pop");
+  let pops = `
                     <div class="con">
                         <img src=${imgSrc}/>
                     </div>
                     <span class="close">close</span>
         `;
-    pop.innerHTML = pops;
-    document.body.append(pop);
-    document.body.style.overflow = "hidden";
-  }
+  pop.innerHTML = pops;
+  document.body.append(pop);
+  document.body.style.overflow = "hidden";
 });
 
 //close popup
