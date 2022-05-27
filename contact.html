@@ -17,8 +17,13 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/sub_layout.css" />
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=40cc8718c3617498526e137b78968990"
+    ></script>
     <script src="js/menu.js" defer></script>
     <script src="js/sub_common.js" defer></script>
+    <script src="js/location.js" defer></script>
   </head>
   <body>
     <header id="headerSub">
@@ -93,11 +98,26 @@
         </div>
       </div>
       <div class="contentWrap">
-        <article class="contact ani-order">
-          <div class="formStyle">
+        <article class="contact">
+          <div class="ani-order">
             <h2>Contact Us</h2>
             <p class="formStyleTxt">Work together. Go further.</p>
-            <div class="formStyleWrap w700">
+          </div>
+          <div class="bgBox ani-content">
+            <div class="mapWrap box1">
+              <ul class="branch">
+                <li class="on"><a href="#">Aléatoire</a></li>
+                <li><a href="#">Branch</a></li>
+              </ul>
+              <div id="map"></div>
+              <ul class="traffic">
+                <li><a href="#">See traffic on maps</a></li>
+                <li class="on"><a href="#">Hide traffic on maps</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="formStyle ani-content">
+            <div class="formStyleWrap">
               <form action="result.html" method="get">
                 <fieldset>
                   <legend class="h">Contact's Form</legend>
@@ -124,7 +144,7 @@
                           type="text"
                           name="email"
                           id="email"
-                          placeholder="Enter your e-mail"
+                          placeholder="Enter your e-mail."
                           required
                         />
                       </td>
@@ -135,7 +155,7 @@
                         <textarea
                           name="message"
                           id="message"
-                          placeholder="Enter your message"
+                          placeholder="Enter your message."
                           cols="30"
                           rows="10"
                           class="terms"
@@ -152,13 +172,6 @@
                   </table>
                 </fieldset>
               </form>
-            </div>
-          </div>
-          <div class="bgBox">
-            <h3>Find us on Maps</h3>
-            <div class="map">
-              <div class="txtBox"></div>
-              <div>Map Area</div>
             </div>
           </div>
         </article>
