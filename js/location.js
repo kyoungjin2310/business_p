@@ -5,7 +5,7 @@ const branch_btns = document.querySelectorAll(".branch li");
 
 /* map option */
 var mapOption = {
-  center: new kakao.maps.LatLng(37.5123, 127.0586),
+  center: new kakao.maps.LatLng(37.521621187062635, 126.92418547602782),
   level: 3,
 };
 
@@ -63,21 +63,6 @@ window.addEventListener("resize", () => {
   const branch = Array.from(branch_btns);
   let active_index = branch.indexOf(active);
   map.setCenter(markerOptions[active_index].latlng);
-});
-
-/* traffic */
-t_on.addEventListener("click", (e) => {
-  e.preventDefault();
-  if (t_on.classList.contains("on")) return;
-  map.addOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);
-  t_on.classList.add("on");
-  t_off.classList.remove("on");
-});
-t_off.addEventListener("click", (e) => {
-  e.preventDefault();
-  map.removeOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);
-  t_on.classList.remove("on");
-  t_off.classList.add("on");
 });
 
 /* control */
