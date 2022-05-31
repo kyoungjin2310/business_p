@@ -30,13 +30,6 @@ function createList(url) {
 
         let date = item.snippet.publishedAt;
         date = date.split("T")[0];
-
-        if (index > 0) {
-          if (desc.length > 100) desc = desc.substr(0, 100) + "...";
-        } else {
-          if (desc.length > 250) desc = desc.substr(0, 250) + "...";
-        }
-
         result += `
                     <article>
                         <a href="#" data-vid="${item.snippet.resourceId.videoId}">
