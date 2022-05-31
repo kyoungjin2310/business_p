@@ -1,3 +1,4 @@
+const header = document.querySelector("#header");
 const total = document.querySelector(".total");
 const current = document.querySelector(".current");
 const slide = document.querySelectorAll("#visual .swiper-slide");
@@ -5,6 +6,7 @@ const active = document.querySelectorAll("#visual .swiper-pagination-bullet");
 const cont_active = document.querySelectorAll("section");
 const cont_active_arr = Array.from(cont_active);
 const cont_activeLen = cont_active.length;
+const homeTop = document.querySelector(".top");
 let posArr = null;
 let enableClick = true;
 let base = -500;
@@ -40,6 +42,7 @@ function setCookie(cname, cvalue, days) {
   let expires = "expires=" + d.toGMTString();
   document.cookie = `${cname}=${cvalue}; path="/"; expires=${expires}`;
 }
+
 //header
 // visual
 total.innerText = slide.length;
@@ -295,7 +298,7 @@ const pr = new Swiper("#pr .mySwiper", {
   },
 });
 
-// .ani-content active add class
+// ani-content add class active
 function setPos() {
   posArr = [];
   for (let el of cont_active) {
@@ -315,9 +318,32 @@ function activation() {
 
 window.addEventListener("scroll", (e) => {
   activation();
+  let scroll = window.scrollY || window.pageYOffset;
+
+  //header
+  if (scroll === 0) {
+    header.classList.remove("on");
+  } else {
+    header.classList.add("on");
+  }
+
+  //top btn
+  if (scroll >= posArr[1] + base) {
+    homeTop.classList.add("on");
+  } else {
+    homeTop.classList.remove("on");
+  }
 });
 
 window.onload = () => {
   //visual
   visualActive();
+  homeTop.addEventListener("click", (e) => {
+    e.preventDefault();
+    new Anime(homeTop, {
+      prop: "scroll",
+      value: 0,
+      duration: 500,
+    });
+  });
 };
