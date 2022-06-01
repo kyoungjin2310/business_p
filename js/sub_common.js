@@ -1,4 +1,5 @@
 const header = document.querySelector("#headerSub");
+const homeTop = document.querySelector(".top");
 const cont_active = document.querySelectorAll(".ani-content");
 const cont_active_arr = Array.from(cont_active);
 const cont_activeLen = cont_active.length;
@@ -34,4 +35,22 @@ window.addEventListener("scroll", (e) => {
   } else {
     header.classList.add("on");
   }
+
+  //top btn
+  if (scroll >= posArr[1] + cont_base) {
+    homeTop.classList.add("on");
+  } else {
+    homeTop.classList.remove("on");
+  }
 });
+
+window.onload = () => {
+  homeTop.addEventListener("click", (e) => {
+    e.preventDefault();
+    new Anime(homeTop, {
+      prop: "scroll",
+      value: 0,
+      duration: 500,
+    });
+  });
+};
