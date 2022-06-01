@@ -1,3 +1,4 @@
+const header = document.querySelector("#headerSub");
 const cont_active = document.querySelectorAll(".ani-content");
 const cont_active_arr = Array.from(cont_active);
 const cont_activeLen = cont_active.length;
@@ -25,4 +26,12 @@ function activation() {
 
 window.addEventListener("scroll", (e) => {
   activation();
+  let scroll = window.scrollY || window.pageYOffset;
+
+  //header
+  if (scroll === 0) {
+    header.classList.remove("on");
+  } else {
+    header.classList.add("on");
+  }
 });
