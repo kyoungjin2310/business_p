@@ -1,0 +1,278 @@
+.news {
+  max-width: 1260px;
+  padding: 0 30px;
+  margin: 0 auto 150px;
+
+  /*search*/
+  #searchBox {
+    width: 100%;
+    padding: 50px 0 70px;
+    font-size: 0;
+
+    #search {
+      width: calc(100% - 120px);
+      height: 70px;
+      line-height: 70px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      padding-left: 30px;
+      font-size: 18px;
+      color: #222;
+      box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.05);
+    }
+    .btnSearch {
+      width: 120px;
+      height: 70px;
+      line-height: 70px;
+      font-family: $fontStyle;
+      font-size: 20px;
+      font-weight: 600;
+      background: #333;
+      color: #fff;
+      text-align: center;
+      cursor: pointer;
+      vertical-align: top;
+      border: none;
+      transition: background-color 0.25s ease;
+      &:hover {
+        background-color: $mainColor;
+      }
+    }
+  }
+
+  /*news*/
+  table {
+    width: 100%;
+    border-top: 1px solid #888;
+    font-weight: 600;
+    tbody tr {
+      transition: 0.25s ease;
+      &:hover {
+        background-color: $bgColor;
+      }
+    }
+    th {
+      padding: 30px 20px;
+      @include title2($color: #555);
+      border-bottom: 1px solid #ddd;
+      &.num {
+        width: 15%;
+      }
+      &.title {
+        width: auto;
+      }
+      &.date {
+        width: 20%;
+      }
+      &.view {
+        width: 3%;
+      }
+    }
+    td {
+      padding: 50px 30px;
+      border-bottom: 1px solid #ddd;
+      &.num {
+        padding: 0;
+        @include numFont($c: #aaa);
+        font-style: italic;
+      }
+      &.title {
+        position: relative;
+        text-align: left;
+        padding-right: 0;
+        &::before {
+          content: "&nbsp;";
+          visibility: hidden;
+        }
+        a {
+          color: #222;
+          font-weight: 600;
+          font-size: 20px;
+          strong,
+          span {
+            position: absolute;
+            top: 35px;
+            left: 0;
+            right: 0;
+            max-width: 700px;
+            display: block;
+            padding-left: 20px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+          }
+          span {
+            top: 75px;
+            font-size: 16px;
+            color: #5d5d5d;
+            font-weight: 400;
+          }
+        }
+      }
+      &.date {
+        padding: 0;
+        color: #aaa;
+        font-weight: 400;
+      }
+      &.view {
+        color: #aaa;
+        font-weight: 400;
+      }
+    }
+  }
+
+  /*pagenation*/
+  .pageWrap {
+    margin-top: 50px;
+    font-size: 0;
+    li {
+      margin: 0 20px;
+      display: inline-block;
+      &.pageBtn {
+        margin: 0 10px;
+        a {
+          display: block;
+          width: 50px;
+          height: 50px;
+          line-height: 50px;
+          border: 1px solid #ddd;
+          background-color: #fff;
+          transition: 0.25s ease;
+          color: #555;
+          &:hover {
+            border-color: $mainColor;
+            background-color: $mainColor;
+            color: #fff;
+          }
+        }
+      }
+      a {
+        font-size: 20px;
+        color: #555;
+      }
+      &.on {
+        a {
+          color: $mainColor;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .news {
+    ::placeholder {
+      font-size: 0;
+    }
+    /*search*/
+    #searchBox {
+      width: 100%;
+      padding: 20px 0 50px;
+
+      #search {
+        width: calc(100% - 90px);
+        height: 50px;
+        line-height: 50px;
+        padding-left: 20px;
+        font-size: 18px;
+      }
+      .btnSearch {
+        width: 90px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 18px;
+      }
+    }
+
+    /*news*/
+    table {
+      th {
+        padding: 10px;
+        font-size: 20px;
+        &.date {
+          display: none;
+        }
+        &.view {
+          display: none;
+        }
+      }
+      td {
+        padding: 40px 30px;
+        &.num {
+          font-size: 40px;
+        }
+        &.title {
+          &::before {
+            content: "&nbsp;";
+            visibility: hidden;
+          }
+          a {
+            font-size: 18px;
+            strong,
+            span {
+              padding-left: 20px;
+              top: 28px;
+            }
+            span {
+              top: 58px;
+            }
+          }
+        }
+        &.date {
+          display: none;
+        }
+        &.view {
+          display: none;
+        }
+      }
+    }
+
+    /*pagenation*/
+    .pageWrap {
+      margin-top: 30px;
+      li {
+        margin: 0 7px;
+        display: inline-block;
+        &.pageBtn {
+          margin: 0;
+          a {
+            display: block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            transition: 0.25s ease;
+            color: #555;
+            &:hover {
+              border-color: $mainColor;
+              background-color: $mainColor;
+              color: #fff;
+            }
+          }
+        }
+        &.prev2,
+        &.next2 {
+          a {
+            border-left: none;
+          }
+        }
+        &.first {
+          margin-left: 15px;
+        }
+        &.last {
+          margin-right: 15px;
+        }
+        a {
+          font-size: 16px;
+          color: #555;
+        }
+        &.on {
+          a {
+            color: $mainColor;
+          }
+        }
+      }
+    }
+  }
+}

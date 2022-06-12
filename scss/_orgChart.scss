@@ -1,0 +1,286 @@
+$org_responsive: 700px;
+
+.orgChart {
+  .division {
+    @include marginAuto(0);
+    .div_tree {
+      margin: 100px 0;
+      font-size: 0;
+      /*1depth */
+      > li {
+        position: relative;
+        &::after {
+          @include cont_poa();
+          top: 150px;
+          left: 50%;
+          width: 1px;
+          height: 265px;
+          background: $borderColor;
+          z-index: -1;
+        }
+        &::before {
+          @include cont_poa();
+          top: 413px;
+          left: 50%;
+          margin-left: -2px;
+          width: 5px;
+          height: 5px;
+          background-color: $circleColor;
+          border-radius: 50%;
+        }
+        span {
+          position: relative;
+          display: inline-block;
+          width: 150px;
+          height: 150px;
+          line-height: 1.5;
+          @include title2($color: #fff, $ff: $fontStyle, $fz: 16px, $fw: 500);
+          margin-bottom: 20px;
+          text-align: center;
+          border-radius: 50%;
+          > span {
+            display: table-cell;
+            vertical-align: middle;
+          }
+          //1depth의 꾸밈선
+        }
+        > span {
+          background: $mainColor;
+          line-height: 150px;
+        }
+        /*2depth*/
+        > ul > li {
+          position: relative;
+          display: inline-block;
+          width: 25%;
+          vertical-align: top;
+          &:first-child,
+          &:nth-child(2) {
+            width: 50%;
+            span::before {
+              display: none;
+            }
+            &::after {
+              @include cont_poa();
+              width: 50%;
+              height: 1px;
+              background: $borderColor;
+              top: 75px;
+              z-index: -1;
+            }
+          }
+          &:first-child {
+            &::after {
+              left: 50%;
+            }
+          }
+          &:nth-child(2) {
+            &::after {
+              left: 0;
+            }
+            &::before {
+              @include cont_poa();
+              width: 5px;
+              height: 5px;
+              background-color: $circleColor;
+              border-radius: 50%;
+              top: 73px;
+              left: -2px;
+            }
+          }
+          &:first-child,
+          &:nth-child(3) {
+            span::before {
+              display: none;
+            }
+          }
+          &::after {
+            content: "";
+            display: block;
+            width: 1px;
+            height: calc(100% - 170px);
+            background: $borderColor;
+            position: absolute;
+            top: 150px;
+            left: 50%;
+            z-index: -1;
+          }
+          > span {
+            display: inline-table;
+            background: #555;
+
+            //2depth, 3depth 꾸밈선
+            &::before {
+              @include cont_poa();
+              height: 1px;
+              width: 100%;
+              background: $borderColor;
+              top: 50%;
+              left: -100%;
+              z-index: -1;
+            }
+          }
+
+          //2depth 꾸밈선
+          &:nth-of-type(1) span::after {
+            display: none;
+          }
+          /*3depth*/
+          li {
+            position: relative;
+            float: none;
+            width: auto;
+            &:first-child {
+              &::after {
+                @include cont_poa();
+                width: 5px;
+                height: 5px;
+                background-color: $circleColor;
+                border-radius: 50%;
+                top: 0;
+                left: 50%;
+                margin-top: -2px;
+                margin-left: -2px;
+              }
+            }
+            > span {
+              display: block;
+              width: auto;
+              height: auto;
+              padding: 10px;
+              margin: 20px 20px;
+              border-radius: 0%;
+              background: #fff;
+              color: #555;
+              border: 1px solid #ccc;
+              line-height: 1.5;
+              &::after {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $org_responsive) {
+  .orgChart {
+    .division {
+      height: auto;
+      .div_tree {
+        display: inline-block;
+        font-size: 0;
+        margin: 60px 0;
+        /*1depth */
+        > li {
+          position: relative;
+          &::after {
+            display: none;
+          }
+          &::before {
+            display: none;
+          }
+          &:first-child {
+            &::after {
+              @include cont_poa();
+              top: 50px;
+              left: 25px;
+              width: 1px;
+              height: calc(100% - 388px);
+              background-color: $borderColor;
+            }
+          }
+          span {
+            display: block;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            margin-bottom: 20px;
+            text-align: center;
+            border-radius: 25px;
+            position: relative;
+            font-size: 14px;
+            > span {
+              display: block;
+            }
+          }
+          > span {
+            line-height: 50px;
+          }
+          /*2depth*/
+          > ul > li {
+            display: block;
+            width: auto;
+            margin-left: 50px;
+            &:nth-child(1),
+            &:nth-child(2) {
+              width: auto;
+              &::before {
+                @include cont_poa();
+                top: 25px;
+                left: -25px;
+                margin-top: -2px;
+                margin-left: -2px;
+                width: 5px;
+                height: 5px;
+                background-color: $circleColor;
+                border-radius: 50%;
+              }
+              &::after {
+                left: -25px;
+                top: 25px;
+              }
+            }
+            &:nth-child(3) {
+              span::before {
+                display: block;
+              }
+            }
+            &::after {
+              top: 25px;
+              left: 15px;
+              height: calc(100% - 45px);
+            }
+            > span {
+              display: block;
+              //2depth, 3depth 꾸밈선
+              &::before {
+                width: 30px;
+                left: -25px;
+              }
+            }
+
+            /*3depth*/
+            li {
+              margin-left: 50px;
+              &:first-child {
+                &::after {
+                  left: -75px;
+                  top: -45px;
+                }
+              }
+              > span {
+                margin: 20px 0;
+                width: auto;
+                height: auto;
+                border-radius: 25px;
+                line-height: 1.5;
+                &::before {
+                  @include cont_poa();
+                  height: 1px;
+                  width: 35px;
+                  background: $borderColor;
+                  top: 50%;
+                  left: -35px;
+                  z-index: -1;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

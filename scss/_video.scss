@@ -1,0 +1,194 @@
+.video {
+  .subTab ul li {
+    width: 50%;
+  }
+  .contentWrap {
+    position: relative;
+    &::after {
+      @include cb();
+    }
+    .vidList {
+      max-width: 1200px;
+      margin: 100px auto 0;
+      padding: 0 30px;
+      width: 100%;
+      text-align: left;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-content: flex-start;
+      padding-bottom: 150px;
+
+      article {
+        width: 48%;
+        margin-bottom: 40px;
+        box-sizing: border-box;
+        padding: 30px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.05);
+        transition: border-color 0.25s ease;
+        .pic {
+          position: relative;
+          display: block;
+          width: 100%;
+          overflow: hidden;
+          > img {
+            width: 100%;
+            vertical-align: top;
+          }
+          &::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            content: "View";
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include title2($ta: left, $fz: 4vmin, $color: #fff);
+            text-align: center;
+            transform: translateY(100%);
+            transition: all 0.5s ease;
+            background: $mainColor;
+            background: linear-gradient(
+              0deg,
+              rgba(0, 86, 241, 1) 0%,
+              rgba(0, 86, 241, 0) 100%
+            );
+          }
+        }
+
+        .con {
+          width: 100%;
+          padding: 30px 0 0;
+          h2 {
+            position: relative;
+            @include title2(
+              $ta: left,
+              $fz: 22px,
+              $color: #222,
+              $ff: $fontStyle
+            );
+            color: #444;
+            margin-bottom: 15px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            transition: color 0.25s ease;
+          }
+          p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 16px;
+            line-height: 1.5;
+            transition: color 0.25s ease;
+            @include ellipsis(2, 1.5);
+          }
+          span {
+            font-size: 15px;
+            line-height: 1em;
+            color: #aaa;
+            transition: color 0.25s ease;
+          }
+        }
+
+        &:first-child {
+          width: 100%;
+          .con {
+            margin-top: -220px;
+            background: #fff;
+            position: relative;
+          }
+          h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+            padding-top: 40px;
+            &::after {
+              @include cont_poa();
+              left: 0;
+              top: 10px;
+              width: 50px;
+              height: 4px;
+              background-color: $mainColor;
+            }
+          }
+          .pic {
+            img {
+              height: calc(100% - 220px);
+              object-fit: cover;
+            }
+            &::after {
+              height: calc(100% - 220px);
+              font-size: 7vmin;
+              text-align: center;
+              background: #0056f1;
+              background: linear-gradient(
+                0deg,
+                rgba(0, 86, 241, 1) 0%,
+                rgba(0, 86, 241, 0) 100%
+              );
+            }
+          }
+        }
+        &:hover {
+          border-color: rgba(0, 86, 241, 0.4);
+          .con {
+            h2 {
+              color: rgba(0, 71, 202, 0.8);
+            }
+            p {
+              color: rgba(0, 86, 241, 0.8);
+            }
+            span {
+              color: rgba(0, 86, 241, 0.5);
+            }
+          }
+          .pic {
+            &::after {
+              transform: translateY(0);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.pop {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  padding: 5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    color: #ffff;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .video .contentWrap .vidList article {
+    width: 100%;
+    &:first-child {
+      .con {
+        margin-top: 0;
+      }
+      .pic::after {
+        height: 100%;
+      }
+    }
+  }
+}
