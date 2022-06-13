@@ -7,8 +7,9 @@ const base = "https://www.flickr.com/services/rest/?";
 const photoGet = "flickr.people.getPublicPhotos";
 const method_search = "flickr.photos.search";
 const user_id = "192490779%40N06";
+const photoset_id = "72177720299233022";
 const per_page = 20;
-const url = `${base}method=${photoGet}&api_key=${key}&user_id=${user_id}&extras=description&per_page=${per_page}&privacy_filter=1&format=json&nojsoncallback=1`;
+const url = `${base}method=${photoGet}&photoset_id=${photoset_id}&api_key=${key}&user_id=${user_id}&extras=description&per_page=${per_page}&privacy_filter=1&format=json&nojsoncallback=1`;
 
 callData(url);
 
@@ -22,7 +23,7 @@ btnSearch.addEventListener("click", (e) => {
     const errMsgs = input.parentElement.querySelectorAll("p");
     if (errMsgs.length > 0) errMsgs[0].remove();
 
-    const url = `${base}method=${method_search}&api_key=${key}&user_id=${user_id}&tags=${tag}&extras=description&per_page=${per_page}&format=json&nojsoncallback=1`;
+    const url = `${base}method=${method_search}&photoset_id=${photoset_id}&api_key=${key}&user_id=${user_id}&tags=${tag}&extras=description&per_page=${per_page}&format=json&nojsoncallback=1`;
     callData(url);
 
     //err msg
@@ -48,7 +49,7 @@ input.addEventListener("keyup", (e) => {
       const errMsgs = input.parentElement.querySelectorAll("p");
       if (errMsgs.length > 0) errMsgs[0].remove();
 
-      const url = `${base}method=${method_search}&api_key=${key}&user_id=${user_id}&tags=${tag}&extras=description&per_page=${per_page}&format=json&nojsoncallback=1`;
+      const url = `${base}method=${method_search}&photoset_id=${photoset_id}&api_key=${key}&user_id=${user_id}&tags=${tag}&extras=description&per_page=${per_page}&format=json&nojsoncallback=1`;
 
       callData(url);
 
