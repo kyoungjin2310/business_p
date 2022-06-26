@@ -4,14 +4,14 @@ const input = document.querySelector("#search");
 const btnSearch = document.querySelector(".btnSearch");
 const key = "f214f4f8200fa66223b5d3c4cc803bbd";
 const base = "https://www.flickr.com/services/rest/?";
-const photoGet = "flickr.people.getPublicPhotos";
+const photoGet = "flickr.photosets.getPhotos";
 const method_search = "flickr.photos.search";
 const user_id = "192490779%40N06";
 const photoset_id = "72177720299233022";
 const per_page = 20;
 const url = `${base}method=${photoGet}&photoset_id=${photoset_id}&api_key=${key}&user_id=${user_id}&extras=description&per_page=${per_page}&privacy_filter=1&format=json&nojsoncallback=1`;
 
-callData(url);
+callData(url, "user");
 
 //serch
 btnSearch.addEventListener("click", (e) => {
@@ -23,8 +23,8 @@ btnSearch.addEventListener("click", (e) => {
     const errMsgs = input.parentElement.querySelectorAll("p");
     if (errMsgs.length > 0) errMsgs[0].remove();
 
-    const url = `${base}method=${method_search}&photoset_id=${photoset_id}&api_key=${key}&user_id=${user_id}&tags=${tag}&extras=description&per_page=${per_page}&format=json&nojsoncallback=1`;
-    callData(url);
+    const url = `${base}method=${method_search}&api_key=${key}&user_id=${user_id}&tags=${tag}&extras=description&per_page=${per_page}&format=json&nojsoncallback=1`;
+    callData(url, "search");
 
     //err msg
   } else {
@@ -49,9 +49,9 @@ input.addEventListener("keyup", (e) => {
       const errMsgs = input.parentElement.querySelectorAll("p");
       if (errMsgs.length > 0) errMsgs[0].remove();
 
-      const url = `${base}method=${method_search}&photoset_id=${photoset_id}&api_key=${key}&user_id=${user_id}&tags=${tag}&extras=description&per_page=${per_page}&format=json&nojsoncallback=1`;
+      const url = `${base}method=${method_search}&api_key=${key}&user_id=${user_id}&tags=${tag}&extras=description&per_page=${per_page}&format=json&nojsoncallback=1`;
 
-      callData(url);
+      callData(url, "search");
 
       //err msg
     } else {
@@ -101,35 +101,60 @@ document.body.addEventListener("click", (e) => {
   }
 });
 
+function noImage() {
+  const errMsg = document.createElement("p");
+  errMsg.append("No Images");
+  input.parentElement.append(errMsg);
+
+  frame.classList.remove("on");
+  loading.classList.add("off");
+  frame.innerHTML = "";
+  frame.style.height = "auto";
+}
 //get data
-function callData(url) {
+function callData(url, type) {
   loading.classList.remove("off");
   frame.classList.remove("on");
 
-  fetch(url)
-    .then((data) => {
-      return data.json();
-    })
-    .then((json) => {
-      let items = json.photos.photo;
-      console.log(items);
+  if (type === "search") {
+    fetch(url)
+      .then((data) => {
+        return data.json();
+      })
+      .then((json) => {
+        console.log(json);
+        let items = json.photos.photo;
+        console.log(items);
 
-      if (items.length > 0) {
-        createList(items);
-        imgLoaded();
-      } else {
-        console.log("No Images");
+        if (items.length > 0) {
+          createList(items);
+          imgLoaded();
+        } else {
+          console.log("No Images");
+          noImage();
+        }
+      });
+  }
 
-        const errMsg = document.createElement("p");
-        errMsg.append("No Images");
-        input.parentElement.append(errMsg);
+  if (type === "user") {
+    fetch(url)
+      .then((data) => {
+        return data.json();
+      })
+      .then((json) => {
+        console.log(json);
+        let items = json.photoset.photo;
+        console.log(items);
 
-        frame.classList.remove("on");
-        loading.classList.add("off");
-        frame.innerHTML = "";
-        frame.style.height = "auto";
-      }
-    });
+        if (items.length > 0) {
+          createList(items);
+          imgLoaded();
+        } else {
+          console.log("No Images");
+          noImage();
+        }
+      });
+  }
 }
 
 function createList(items) {
