@@ -4,6 +4,8 @@ const playlistId = "PLTncuNK6QrZPZGm9oJIQ9mhOwuAK91b-v";
 const num = 7;
 const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&key=${key}&playlistId=${playlistId}&maxResults=${num}`;
 const target = document.querySelector(".content");
+const mask = document.querySelector(".mask");
+const defaults = document.querySelector(".defaults");
 
 createList(url);
 
@@ -45,6 +47,10 @@ function createList(url) {
       });
 
       vidList.innerHTML = result;
+      if (result.length > 0) {
+        mask.remove();
+        defaults.remove();
+      }
     });
 }
 
