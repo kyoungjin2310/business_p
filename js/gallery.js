@@ -124,13 +124,11 @@ function callData(url, type) {
       .then((json) => {
         console.log(json);
         let items = json.photos.photo;
-        console.log(items);
 
         if (items.length > 0) {
           createList(items);
           imgLoaded();
         } else {
-          console.log("No Images");
           noImage();
         }
       });
@@ -144,13 +142,11 @@ function callData(url, type) {
       .then((json) => {
         console.log(json);
         let items = json.photoset.photo;
-        console.log(items);
 
         if (items.length > 0) {
           createList(items);
           imgLoaded();
         } else {
-          console.log("No Images");
           noImage();
         }
       });
@@ -195,12 +191,12 @@ function imgLoaded() {
     };
   });
 
-  const buddies = document.querySelectorAll(".profile img");
-  buddies.forEach((buddy) => {
-    buddy.onerror = () => {
-      buddy.setAttribute("src", "https://www.flickr.com/images/buddyicon.gif");
-    };
-  });
+  // const buddies = document.querySelectorAll(".profile img");
+  // buddies.forEach((buddy) => {
+  //   buddy.onerror = () => {
+  //     buddy.setAttribute("src", "https://www.flickr.com/images/buddyicon.gif");
+  //   };
+  // });
 }
 
 function isoLayout() {

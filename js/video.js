@@ -4,9 +4,7 @@ const playlistId = "PLTncuNK6QrZPZGm9oJIQ9mhOwuAK91b-v";
 const num = 7;
 const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&key=${key}&playlistId=${playlistId}&maxResults=${num}`;
 const target = document.querySelector(".content");
-const mask = document.querySelector(".mask");
-const defaults = document.querySelector(".defaults");
-
+const loading = document.querySelector(".loading");
 createList(url);
 
 vidList.addEventListener("click", (e) => createPop(e));
@@ -48,8 +46,7 @@ function createList(url) {
 
       vidList.innerHTML = result;
       if (result.length > 0) {
-        mask.remove();
-        defaults.remove();
+        imgLoaded();
       }
     });
 }
@@ -75,4 +72,21 @@ function closePop(e) {
     const close = pop.querySelector("span");
     if (e.target == close) pop.remove();
   }
+}
+
+function imgLoaded() {
+  const thumb = document.querySelectorAll(".pic img");
+  const frame = document.querySelector(".vidList");
+  const len = thumb.length;
+  let count = 0;
+
+  thumb.forEach((img) => {
+    img.onload = () => {
+      count++;
+      if (count == len) {
+        loading.classList.add("off");
+        frame.classList.add("on");
+      }
+    };
+  });
 }
